@@ -80,4 +80,8 @@ struct elem_t
     uint loc_offset <format=hex>,
          loc_file <format=hex>;
 
-} elem[count] <optimize=false, read=Str("[/] %s", buf[ startof(this) / sizeof(elem_t)].s)>;
+} elem[count] <optimize=false, read=Str("[/] %s", buf[startof(this) / sizeof(this)].s)>;
+
+/* swy: clone the XUtil generator .txt output bit by bit */
+for (i = 0; i<count; i++)
+    Printf("%-72s : Len %10u : Ver %4u : Hash %#x : Ts 0x%08x :  Loc %11x:%03x\r\n", buf[i].s[0] != 0 ? buf[i].s : "  *??? <missing path>", elem[i].len, elem[i].ver, elem[i].hashcode, elem[i].ts, elem[i].loc_offset, elem[i].loc_file);
