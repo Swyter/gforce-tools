@@ -32,7 +32,7 @@ for (i = 0; i<count; i++)
     nxt = startof(string_offset[i + 1]) + string_offset[i + 1];
 
     FSeek(cur);
-    struct st {char str[ nxt - cur ];} s <optimize=false, read=decode>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {char str[ nxt - cur ];} s <optimize=false, comment=decode>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
 
@@ -43,7 +43,7 @@ string decode(struct st &thing)
 
     local uint j = 0;
     for (j = 0; j < sizeof(thing.str); j++)
-        buf += "a";
+        buf += (char)((thing.str[j] + 0x16 - offset - j) & 0xff);// + 0x16;
 
     offset++;
 
