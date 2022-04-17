@@ -8,7 +8,8 @@
 //            This is used as some kind of index that lets the game know at what offset of
 //            the big Filelist.000 it needs to start to find the matching file. And what size.
 //
-//            The file paths are obfuscated/encrypted with some kind of rolling arithmetic thingie.
+//            Unlike Sphinx and some other earlier games, the file paths are obfuscated/encrypted with
+//            some kind of rolling arithmetic thingie. Take a look below.
 //
 //  Category: Game
 // File Mask: *.bin
@@ -21,7 +22,8 @@ uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
 /* swy: right after the header there we have the file elements, but we skip them for now
         because we don't have the file paths yet; we'll come back later */
 
-/* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory */
+/* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory
+        this look-up table exists so that we can find the random string offset from a simple index */
 FSeek(startof(string_table_offset) + string_table_offset);
 uint string_offset[count];
 
@@ -35,34 +37,37 @@ local struct {string s; } buf[count];
 
 for (i = 0; i<count; i++)
 {
+    /* swy: grab the absolute start position/offset for our string */
     cur = startof(string_offset[i]) + string_offset[i];
 
+    /* swy: we need to decode the string beforehand to find its size;
+            here limited to 255-ish characters to avoid looping endlessly */
     buf[i].s = "";
 
     for (j = 0; j < 255; j)
     {
         /* swy: the cypher works as follows; for each character/byte add to it
-                the constant 0x16 minus the current entry index (starts from zero)
+                the constant 0x16 minus the current entry index (which starts from zero)
                 and minus the current character index in the string (which also starts from zero)
 
                 because we are working with individual bytes, they wrap around and we don't lose information */
         cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
 
-        j++;
+        j++; /* swy: this goes here because sometimes the paths are empty and only contain the final NULL terminator; which we want to include in the count here as part of the buffer; otherwise it's empty */
 
-        if (cur_byte == 0)
+        if (cur_byte == 0) /* swy: we found the zero/NULL terminator of the C string; we're done */
             break;
     }
 
     FSeek(cur);
-    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>;
+    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>; /* swy: kind of a weird hack to make the dynamic storage, debugging and look-up work on 010 Editor */
 
 }
 
 
 /* swy: go backwards to parse the file elements/entries now that we know the decoded paths */
-FSeek(startof(string_table_offset) + 4);
+FSeek(startof(string_table_offset) + sizeof(string_table_offset));
 
 struct elem_t
 {
