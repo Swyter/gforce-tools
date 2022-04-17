@@ -16,5 +16,5 @@ uint ver, full_size, count;
 
 struct
 {
-    uint elem[7] <format=hex>;
+    uint offset<format=hex>, a, b, hashcode<format=hex>, ver, d, e <format=hex>;
 }elem[count];
