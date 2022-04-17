@@ -25,26 +25,26 @@ local uint i = 0, j = 0;
 local uint cur, nxt;
 local char cur_byte;
 
-local string buf = "";
+local struct {string s; } buf[count];
 
 for (i = 0; i<count; i++)
 {
     cur = startof(string_offset[i]) + string_offset[i];
 
-    buf = "";
+    buf[i].s = "";
 
     for (j = 0; j < 255; j++)
     {
 
         cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
-        buf += (char) cur_byte;
+        buf[i].s += (char) cur_byte;
 
         if (cur_byte == 0)
             break;
     }
 
     FSeek(cur);
-    struct st {char str[ j ];} s <optimize=false, comment=buf>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {local uint idx = i; char str[ j ];} s <optimize=false, comment=buf[this.idx].s>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
 
