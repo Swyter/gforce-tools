@@ -26,10 +26,10 @@ local uint cur, nxt;
 
 for (i = 0; i<count; i++)
 {
-    cur = startof(string_offset[i]) + string_offset[i];
+    cur = startof(string_offset[i    ]) + string_offset[i    ];
     nxt = startof(string_offset[i + 1]) + string_offset[i + 1];
 
     FSeek(cur);
-    struct {char str[ nxt - cur ];} s <optimize=false>;
+    struct {char str[ nxt - cur ];} s <optimize=false>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
