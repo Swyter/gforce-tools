@@ -12,7 +12,7 @@
 //------------------------------------------------
 
 
-uint ver, full_size, count, one, string_table_offset <format=hex>;
+uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
 
 /* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory */
 FSeek(startof(string_table_offset) + string_table_offset);
@@ -31,18 +31,20 @@ for (i = 0; i<count; i++)
 
     buf[i].s = "";
 
-    for (j = 0; j < 255; j++)
+    for (j = 0; j < 255; j)
     {
 
         cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
+
+        j++;
 
         if (cur_byte == 0)
             break;
     }
 
     FSeek(cur);
-    struct st {local uint idx = i; char str[j];} s <optimize=false, comment=buf[this.idx].s>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
 
@@ -52,4 +54,4 @@ struct elem_t
 {
     uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
     uint loc_offset <format=hex>, loc_file <format=hex>;
-}elem[count] <optimize=false, comment=buf[ startof(this) / sizeof(elem_t)].s>;
+}elem[count] <optimize=false, read=Str("[/] %s", buf[ startof(this) / sizeof(elem_t)].s)>;
