@@ -14,13 +14,7 @@
 
 uint ver, full_size, count, one, string_table_offset <format=hex>;
 
-struct
-{
-    uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
-    uint loc_offset <format=hex>, loc_file <format=hex>;
-}elem[count];
-
-/* swy: immediately contiguous; so we shouldn't need the FSeek(), in theory */
+/* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory */
 FSeek(startof(string_table_offset) + string_table_offset);
 uint string_offset[count];
 
@@ -52,7 +46,10 @@ for (i = 0; i<count; i++)
 
 }
 
-string decode(char &stringBuf, uint elemIndex)
-{
+FSeek(startof(string_table_offset) + 4);
 
-}
+struct elem_t
+{
+    uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
+    uint loc_offset <format=hex>, loc_file <format=hex>;
+}elem[count] <optimize=false, comment=buf[ startof(this) / sizeof(elem_t)].s>;
