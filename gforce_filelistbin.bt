@@ -12,14 +12,18 @@
 //------------------------------------------------
 
 
-uint ver, full_size, count, a, string_table_offset <format=hex>;
+uint ver, full_size, count, one, string_table_offset <format=hex>;
 
 struct
 {
-    uint len, hashcode <format=hex>, ver, ts, e <format=hex>, loc_offset<format=hex>, loc_file;
+    uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
+    uint loc_offset <format=hex>, loc_file <format=hex>;
 }elem[count];
 
+/* swy: immediately contiguous; so we shouldn't need the FSeek(), in theory */
+FSeek(startof(string_table_offset) + string_table_offset);
 uint string_offset[count];
+
 
 local uint i = 0, j = 0;
 local uint cur, nxt;
@@ -44,7 +48,7 @@ for (i = 0; i<count; i++)
     }
 
     FSeek(cur);
-    struct st {local uint idx = i; char str[ j ];} s <optimize=false, comment=buf[this.idx].s>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {local uint idx = i; char str[j];} s <optimize=false, comment=buf[this.idx].s>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
 
