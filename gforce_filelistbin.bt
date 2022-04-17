@@ -20,3 +20,11 @@ struct
 }elem[count];
 
 uint string_offset[count];
+
+local uint i = 0;
+
+for (i = 0; i<count; i++)
+{
+    FSeek(string_offset[i]);
+    struct {string str;} s;
+}
