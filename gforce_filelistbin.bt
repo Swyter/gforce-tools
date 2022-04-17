@@ -22,6 +22,8 @@ uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
 /* swy: right after the header there we have the file elements, but we skip them for now
         because we don't have the file paths yet; we'll come back later */
 
+/* <-- */
+
 /* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory
         this look-up table exists so that we can find the random string offset from a simple index */
 FSeek(startof(string_table_offset) + string_table_offset);
@@ -61,18 +63,21 @@ for (i = 0; i<count; i++)
     }
 
     FSeek(cur);
-    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>; /* swy: kind of a weird hack to make the dynamic storage, debugging and look-up work on 010 Editor */
+    struct st { local uint idx = i; char str[j]; } s <optimize=false, read=buf[this.idx].s, hidden=1>; /* swy: kind of a weird hack to make the dynamic storage, debugging and look-up work on 010 Editor */
 
 }
 
 
-/* swy: go backwards to parse the file elements/entries now that we know the decoded paths */
+/* swy: go backwards/up to parse the file elements/entries (the ones after the header)
+        now that we know the decoded paths */
+
 FSeek(startof(string_table_offset) + sizeof(string_table_offset));
 
 struct elem_t
 {
     uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
+
     uint loc_offset <format=hex>,
          loc_file <format=hex>;
 
-}elem[count] <optimize=false, read=Str("[/] %s", buf[ startof(this) / sizeof(elem_t)].s)>;
+} elem[count] <optimize=false, read=Str("[/] %s", buf[ startof(this) / sizeof(elem_t)].s)>;
