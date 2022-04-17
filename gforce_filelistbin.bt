@@ -12,6 +12,9 @@
 //------------------------------------------------
 
 
-uint ver;
+uint ver, full_size, count;
 
-uint elem[60] <format=hex>;
+struct
+{
+    uint elem[7] <format=hex>;
+}elem[count];
