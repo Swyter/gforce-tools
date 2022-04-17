@@ -21,31 +21,34 @@ struct
 
 uint string_offset[count];
 
-local uint i = 0;
+local uint i = 0, j = 0;
 local uint cur, nxt;
+local char cur_byte;
 
-local uint offset = 0;
+local string buf = "";
 
 for (i = 0; i<count; i++)
 {
-    cur = startof(string_offset[i    ]) + string_offset[i    ];
-    nxt = startof(string_offset[i + 1]) + string_offset[i + 1];
+    cur = startof(string_offset[i]) + string_offset[i];
+
+    buf = "";
+
+    for (j = 0; j < 255; j++)
+    {
+
+        cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
+        buf += (char) cur_byte;
+
+        if (cur_byte == 0)
+            break;
+    }
 
     FSeek(cur);
-    struct st {char str[ nxt - cur ];} s <optimize=false, comment=decode>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {char str[ j ];} s <optimize=false, comment=buf>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
 
 }
 
-string decode(struct st &thing)
+string decode(char &stringBuf, uint elemIndex)
 {
 
-    string buf = "";
-
-    local uint j = 0;
-    for (j = 0; j < sizeof(thing.str); j++)
-        buf += (char)((thing.str[j] + 0x16 - offset - j) & 0xff);// + 0x16;
-
-    offset++;
-
-    return buf;
 }
