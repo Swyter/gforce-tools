@@ -1,24 +1,32 @@
 //------------------------------------------------
 //--- 010 Editor v12.0.1 Binary Template
 //
-//      File: 
-//   Authors: 
-//   Version: 
-//   Purpose: 
-//  Category: 
-// File Mask: 
-//  ID Bytes: 
-//   History: 
+//      File: Disney's G-Force - Filelist.bin
+//   Authors: Swyter
+//   Version: 2022.04.17
+//   Purpose: Opens the Filelist format for this version of EngineX.
+//            This is used as some kind of index that lets the game know at what offset of
+//            the big Filelist.000 it needs to start to find the matching file. And what size.
+//
+//            The file paths are obfuscated/encrypted with some kind of rolling arithmetic thingie.
+//
+//  Category: Game
+// File Mask: *.bin
+//  ID Bytes: 07 00 00 00
 //------------------------------------------------
 
-
+/* swy: here's the nifty header */
 uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
+
+/* swy: right after the header there we have the file elements, but we skip them for now
+        because we don't have the file paths yet; we'll come back later */
 
 /* swy: immediately contiguous after the element array; so we shouldn't need the FSeek(), in theory */
 FSeek(startof(string_table_offset) + string_table_offset);
 uint string_offset[count];
 
-
+/* swy: jump to the end to decypher the strings beforehand, so that we can use and paste them in the entry list
+        this st struct is going to be hidden by default and only used indirectly; set the hidden=1 to zero */
 local uint i = 0, j = 0;
 local uint cur, nxt;
 local char cur_byte;
@@ -33,7 +41,11 @@ for (i = 0; i<count; i++)
 
     for (j = 0; j < 255; j)
     {
+        /* swy: the cypher works as follows; for each character/byte add to it
+                the constant 0x16 minus the current entry index (starts from zero)
+                and minus the current character index in the string (which also starts from zero)
 
+                because we are working with individual bytes, they wrap around and we don't lose information */
         cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
 
@@ -44,14 +56,18 @@ for (i = 0; i<count; i++)
     }
 
     FSeek(cur);
-    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>; /* swy: XORing against the NULL value at the end of each string seems to remove the first layer, there's another incrementing/rolling encoding on top */
+    struct st {local uint idx = i; char str[j];} s <optimize=false, read=buf[this.idx].s, hidden=1>;
 
 }
 
+
+/* swy: go backwards to parse the file elements/entries now that we know the decoded paths */
 FSeek(startof(string_table_offset) + 4);
 
 struct elem_t
 {
     uint len, hashcode <format=hex>, ver, ts <format=hex>, unk_one <format=hex>;
-    uint loc_offset <format=hex>, loc_file <format=hex>;
+    uint loc_offset <format=hex>,
+         loc_file <format=hex>;
+
 }elem[count] <optimize=false, read=Str("[/] %s", buf[ startof(this) / sizeof(elem_t)].s)>;
