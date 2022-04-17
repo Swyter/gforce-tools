@@ -12,9 +12,11 @@
 //------------------------------------------------
 
 
-uint ver, full_size, count, a, b;
+uint ver, full_size, count, a, string_table_offset <format=hex>;
 
 struct
 {
-    uint len, hashcode<format=hex>, ver, ts, e <format=hex>, loc_offset<format=hex>, loc_file;
+    uint len, hashcode <format=hex>, ver, ts, e <format=hex>, loc_offset<format=hex>, loc_file;
 }elem[count];
+
+uint string_offset[count];
