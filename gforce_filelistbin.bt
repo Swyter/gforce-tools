@@ -12,9 +12,9 @@
 //------------------------------------------------
 
 
-uint ver, full_size, count;
+uint ver, full_size, count, a, b;
 
 struct
 {
-    uint offset<format=hex>, a, b, hashcode<format=hex>, ver, d, e <format=hex>;
+    uint len, hashcode<format=hex>, ver, ts, e <format=hex>, loc_offset<format=hex>, loc_file;
 }elem[count];
