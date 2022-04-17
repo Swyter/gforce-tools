@@ -22,9 +22,14 @@ struct
 uint string_offset[count];
 
 local uint i = 0;
+local uint cur, nxt;
 
 for (i = 0; i<count; i++)
 {
-    FSeek(startof(string_table_offset) + string_table_offset + string_offset[i]);
-    struct {string str;} s;
+    cur = startof(string_offset[i]) + string_offset[i];
+    nxt = startof(string_offset[i + 1]) + string_offset[i + 1];
+
+    FSeek(cur);
+    struct {char str[ nxt - cur ];} s <optimize=false>;
+
 }
