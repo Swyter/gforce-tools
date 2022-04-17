@@ -25,6 +25,6 @@ local uint i = 0;
 
 for (i = 0; i<count; i++)
 {
-    FSeek(string_offset[i]);
+    FSeek(startof(string_table_offset) + string_table_offset + string_offset[i]);
     struct {string str;} s;
 }
