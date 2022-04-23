@@ -13,7 +13,7 @@
 
 struct spreadsheet_t
 {
-    uint thing, unk, more[3], count;
+    uint thing <format=hex>, unk, more[3], count;
     struct
     {
         uint hashcode <format=hex>,
@@ -32,11 +32,14 @@ struct spreadsheet_t
         FSeek(saved);
     
     
-    } entry[count] <optimize=false>;
+    } entry[count] <optimize=false, read=Str("[%x] %s", hashcode, str)>;
 
+
+    Printf("***spreadsheet--\r\n");
     local int i;
     for (i = 0; i<count; i++)
         Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
+    Printf("--\r\n");
 
 };
 
