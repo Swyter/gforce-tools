@@ -37,3 +37,7 @@ struct
 } entry[count] <optimize=false>;
 
 uint next;
+
+local int i;
+for (i = 0; i<count; i++)
+    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
