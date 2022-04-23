@@ -1,0 +1,21 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+FSeek(0x4000);
+
+uint thing, count;
+
+struct { uint entry, entryb, entryc[2]; } entry[1805];
+
+uint next;
