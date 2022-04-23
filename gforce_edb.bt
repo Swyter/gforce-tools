@@ -16,6 +16,6 @@ FSeek(0x4000);
 
 uint thing, unk, more[3], count;
 
-struct { uint entry, entryb, entryc[2]; } entry[count];
+struct { uint hashcode <format=hex>, offset <format=hex>, offsetb <format=hex>, unk <format=hex>; } entry[count];
 
 uint next;
