@@ -1,14 +1,13 @@
 //------------------------------------------------
 //--- 010 Editor v12.0.1 Binary Template
 //
-//      File: 
-//   Authors: 
-//   Version: 
-//   Purpose: 
-//  Category: 
-// File Mask: 
-//  ID Bytes: 
-//   History: 
+//      File: Disney's G-Force - Eurocom/EngineX Binary DataBase (EDB)
+//   Authors: Swyter
+//   Version: 2022.04.23
+//   Purpose: Opens this workhorse proprietary format, version 259.
+//  Category: Game
+// File Mask: *.edb
+//  ID Bytes: 4D 4F 45 47
 //------------------------------------------------
 
 typedef struct spreadsheet
@@ -35,18 +34,18 @@ typedef struct spreadsheet
     } entry[count] <optimize=false, read=Str("[%x] %s", hashcode, str)>;
 
 
-    //Printf("***spreadsheet at %#x--\r\n", next_spreadsheet_addr);
-    //local int i;
+    Printf("***spreadsheet at %#x, %u elements--\r\n", next_spreadsheet_addr, count);
+    local int i;
     //for (i = 0; i<count; i++)
     //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
-    //Printf("--\r\n");
+    Printf("--\r\n");
 
 } spreadsheet_t <read=Str("[%x] %u elements", startof(this), this.count)>;
 
 /*
 
 // english
-FSeek(0x004000); struct spreadsheet_t a; // 1804 elements  
+FSeek(0x004000); struct spreadsheet_t a; // 1804 elements  // options, more, chapter 1, 2 and 3
 FSeek(0x03F000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x045000); struct spreadsheet_t a; //  238 elements  
 FSeek(0x04E000); struct spreadsheet_t a; //  329 elements  
@@ -440,12 +439,11 @@ FSeek(0x85A800); struct spreadsheet_t a; //  104 elements
 
 */
 
-
 local int i; local uint s = 0x4000;
-for (i = 0; i<357; i++)
+for (i = 0; s < FileSize(); i++)
 {
-
     FSeek(s);
     struct spreadsheet_t a; s = a.next_spreadsheet_addr;
-    Printf("%sFSeek(0x%06X); struct spreadsheet_t a; // %4u elements %s \r\n",  a.count == 1804 ? "\n\n" : "", startof(a), a.count, a.count==0 ? " // empty" : "");
+    //Printf("%sFSeek(0x%06X); struct spreadsheet_t a; // %4u elements %s \r\n",  a.count == 1804 ? "\n\n" : "", startof(a), a.count, a.count==0 ? " // empty" : "");
 }
+
