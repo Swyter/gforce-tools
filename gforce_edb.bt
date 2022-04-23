@@ -41,7 +41,7 @@ typedef struct spreadsheet
     //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
     //Printf("--\r\n");
 
-} spreadsheet_t <read=Str("[%x] %u elements", unk, this.count)>;
+} spreadsheet_t <read=Str("[%x] %u elements", startof(this), this.count)>;
 
 /*
 FSeek(0x004000); struct spreadsheet_t a;
@@ -65,10 +65,10 @@ FSeek(0x07B800); struct spreadsheet_t a; // empty
 FSeek(0x07C000); struct spreadsheet_t a; // credits, spanish credits at 714800h, first spanish one at 6A2000h
 FSeek(0x083000); struct spreadsheet_t a; // empty
 FSeek(0x083800); struct spreadsheet_t a;
+
 FSeek(0x0BE800); struct spreadsheet_t a;
 FSeek(0x0C4800); struct spreadsheet_t a;
 FSeek(0x0CD800); struct spreadsheet_t a;
-
 FSeek(0x0DB000); struct spreadsheet_t a;
 FSeek(0x0E3800); struct spreadsheet_t a;
 FSeek(0x0EA800); struct spreadsheet_t a;
@@ -85,6 +85,7 @@ FSeek(0x0FA800); struct spreadsheet_t a;
 FSeek(0x0FB000); struct spreadsheet_t a; // empty
 FSeek(0x0FB800); struct spreadsheet_t a;
 FSeek(0x102800); struct spreadsheet_t a; // empty
+
 FSeek(0x103000); struct spreadsheet_t a;
 FSeek(0x13B000); struct spreadsheet_t a;
 FSeek(0x141000); struct spreadsheet_t a;
@@ -105,6 +106,7 @@ FSeek(0x171800); struct spreadsheet_t a;
 FSeek(0x172000); struct spreadsheet_t a; // empty
 FSeek(0x172800); struct spreadsheet_t a;
 FSeek(0x179800); struct spreadsheet_t a; // empty
+
 FSeek(0x17A000); struct spreadsheet_t a;
 FSeek(0x1B3800); struct spreadsheet_t a;
 FSeek(0x1B9800); struct spreadsheet_t a;
@@ -125,6 +127,7 @@ FSeek(0x1E8800); struct spreadsheet_t a;
 FSeek(0x1E9000); struct spreadsheet_t a; // empty
 FSeek(0x1E9800); struct spreadsheet_t a;
 FSeek(0x1F0800); struct spreadsheet_t a; // empty
+
 FSeek(0x1F1000); struct spreadsheet_t a;
 FSeek(0x230800); struct spreadsheet_t a;
 FSeek(0x237000); struct spreadsheet_t a;
@@ -145,6 +148,7 @@ FSeek(0x26B000); struct spreadsheet_t a;
 FSeek(0x26B800); struct spreadsheet_t a; // empty
 FSeek(0x26C000); struct spreadsheet_t a;
 FSeek(0x273000); struct spreadsheet_t a; // empty
+
 FSeek(0x273800); struct spreadsheet_t a;
 FSeek(0x2B1000); struct spreadsheet_t a;
 FSeek(0x2B7800); struct spreadsheet_t a;
@@ -165,6 +169,7 @@ FSeek(0x2EA000); struct spreadsheet_t a;
 FSeek(0x2EA800); struct spreadsheet_t a; // empty
 FSeek(0x2EB000); struct spreadsheet_t a;
 FSeek(0x2F2000); struct spreadsheet_t a; // empty
+
 FSeek(0x2F2800); struct spreadsheet_t a;
 FSeek(0x32F000); struct spreadsheet_t a;
 FSeek(0x335000); struct spreadsheet_t a;
@@ -185,6 +190,7 @@ FSeek(0x364000); struct spreadsheet_t a;
 FSeek(0x364800); struct spreadsheet_t a; // empty
 FSeek(0x365000); struct spreadsheet_t a;
 FSeek(0x36C000); struct spreadsheet_t a; // empty
+
 FSeek(0x36C800); struct spreadsheet_t a;
 FSeek(0x3A3000); struct spreadsheet_t a;
 FSeek(0x3A8800); struct spreadsheet_t a;
@@ -195,6 +201,218 @@ FSeek(0x3CC000); struct spreadsheet_t a;
 FSeek(0x3CD000); struct spreadsheet_t a;
 FSeek(0x3CE800); struct spreadsheet_t a;
 FSeek(0x3CF000); struct spreadsheet_t a;
+
+
+FSeek(0x3CF000); struct spreadsheet_t a;
+FSeek(0x3D1800); struct spreadsheet_t a;
+FSeek(0x3D2000); struct spreadsheet_t a;
+FSeek(0x3D2800); struct spreadsheet_t a;
+FSeek(0x3D3000); struct spreadsheet_t a;
+FSeek(0x3D3800); struct spreadsheet_t a;
+FSeek(0x3D4800); struct spreadsheet_t a;
+FSeek(0x3D5000); struct spreadsheet_t a;
+FSeek(0x3D5800); struct spreadsheet_t a; // empty
+FSeek(0x3D6000); struct spreadsheet_t a;
+FSeek(0x3DD000); struct spreadsheet_t a; // empty
+FSeek(0x3DD800); struct spreadsheet_t a;
+FSeek(0x419800); struct spreadsheet_t a;
+FSeek(0x41F800); struct spreadsheet_t a;
+FSeek(0x428000); struct spreadsheet_t a;
+FSeek(0x436000); struct spreadsheet_t a;
+FSeek(0x43E800); struct spreadsheet_t a;
+FSeek(0x445000); struct spreadsheet_t a;
+FSeek(0x446000); struct spreadsheet_t a;
+FSeek(0x447800); struct spreadsheet_t a;
+FSeek(0x448000); struct spreadsheet_t a;
+FSeek(0x44A800); struct spreadsheet_t a;
+FSeek(0x44B000); struct spreadsheet_t a;
+FSeek(0x44C800); struct spreadsheet_t a;
+FSeek(0x44D000); struct spreadsheet_t a;
+FSeek(0x44D800); struct spreadsheet_t a;
+FSeek(0x44E800); struct spreadsheet_t a;
+FSeek(0x44F000); struct spreadsheet_t a;
+FSeek(0x44F800); struct spreadsheet_t a; // empty
+FSeek(0x450000); struct spreadsheet_t a;
+FSeek(0x457800); struct spreadsheet_t a; // empty
+FSeek(0x458000); struct spreadsheet_t a;
+FSeek(0x48F000); struct spreadsheet_t a;
+FSeek(0x495000); struct spreadsheet_t a;
+FSeek(0x49D800); struct spreadsheet_t a;
+FSeek(0x4AA800); struct spreadsheet_t a;
+FSeek(0x4B2800); struct spreadsheet_t a;
+FSeek(0x4B9000); struct spreadsheet_t a;
+FSeek(0x4BA000); struct spreadsheet_t a;
+FSeek(0x4BB800); struct spreadsheet_t a;
+FSeek(0x4BC000); struct spreadsheet_t a;
+FSeek(0x4BE800); struct spreadsheet_t a;
+FSeek(0x4BF000); struct spreadsheet_t a;
+FSeek(0x4BF800); struct spreadsheet_t a;
+FSeek(0x4C0000); struct spreadsheet_t a;
+FSeek(0x4C0800); struct spreadsheet_t a;
+FSeek(0x4C1800); struct spreadsheet_t a;
+FSeek(0x4C2000); struct spreadsheet_t a;
+FSeek(0x4C2800); struct spreadsheet_t a; // empty
+FSeek(0x4C3000); struct spreadsheet_t a;
+FSeek(0x4CA000); struct spreadsheet_t a; // empty
+FSeek(0x4CA800); struct spreadsheet_t a;
+FSeek(0x505000); struct spreadsheet_t a;
+FSeek(0x50A800); struct spreadsheet_t a;
+FSeek(0x512800); struct spreadsheet_t a;
+FSeek(0x520000); struct spreadsheet_t a;
+FSeek(0x528000); struct spreadsheet_t a;
+FSeek(0x52E000); struct spreadsheet_t a;
+FSeek(0x52F000); struct spreadsheet_t a;
+FSeek(0x530800); struct spreadsheet_t a;
+FSeek(0x531000); struct spreadsheet_t a;
+FSeek(0x533800); struct spreadsheet_t a;
+FSeek(0x534000); struct spreadsheet_t a;
+FSeek(0x535800); struct spreadsheet_t a;
+FSeek(0x536000); struct spreadsheet_t a;
+FSeek(0x536800); struct spreadsheet_t a;
+FSeek(0x537800); struct spreadsheet_t a;
+FSeek(0x538000); struct spreadsheet_t a;
+FSeek(0x538800); struct spreadsheet_t a; // empty
+FSeek(0x539000); struct spreadsheet_t a;
+FSeek(0x540000); struct spreadsheet_t a; // empty
+FSeek(0x540800); struct spreadsheet_t a;
+FSeek(0x576000); struct spreadsheet_t a;
+FSeek(0x57B800); struct spreadsheet_t a;
+FSeek(0x583800); struct spreadsheet_t a;
+FSeek(0x590000); struct spreadsheet_t a;
+FSeek(0x597800); struct spreadsheet_t a;
+FSeek(0x59D000); struct spreadsheet_t a;
+FSeek(0x59E000); struct spreadsheet_t a;
+FSeek(0x59F800); struct spreadsheet_t a;
+FSeek(0x5A0000); struct spreadsheet_t a;
+FSeek(0x5A2800); struct spreadsheet_t a;
+FSeek(0x5A3000); struct spreadsheet_t a;
+FSeek(0x5A3800); struct spreadsheet_t a;
+FSeek(0x5A4000); struct spreadsheet_t a;
+FSeek(0x5A4800); struct spreadsheet_t a;
+FSeek(0x5A5000); struct spreadsheet_t a;
+FSeek(0x5A5800); struct spreadsheet_t a;
+FSeek(0x5A6000); struct spreadsheet_t a; // empty
+FSeek(0x5A6800); struct spreadsheet_t a;
+FSeek(0x5AD800); struct spreadsheet_t a; // empty
+FSeek(0x5AE000); struct spreadsheet_t a;
+FSeek(0x5E7800); struct spreadsheet_t a;
+FSeek(0x5ED000); struct spreadsheet_t a;
+FSeek(0x5F5000); struct spreadsheet_t a;
+FSeek(0x601800); struct spreadsheet_t a;
+FSeek(0x609000); struct spreadsheet_t a;
+FSeek(0x60F000); struct spreadsheet_t a;
+FSeek(0x610000); struct spreadsheet_t a;
+FSeek(0x611000); struct spreadsheet_t a;
+FSeek(0x611800); struct spreadsheet_t a;
+FSeek(0x614000); struct spreadsheet_t a;
+FSeek(0x614800); struct spreadsheet_t a;
+FSeek(0x615000); struct spreadsheet_t a;
+FSeek(0x615800); struct spreadsheet_t a;
+FSeek(0x616000); struct spreadsheet_t a;
+FSeek(0x616800); struct spreadsheet_t a;
+FSeek(0x617000); struct spreadsheet_t a;
+FSeek(0x617800); struct spreadsheet_t a; // empty
+FSeek(0x618000); struct spreadsheet_t a;
+FSeek(0x61F000); struct spreadsheet_t a; // empty
+FSeek(0x61F800); struct spreadsheet_t a;
+FSeek(0x65F000); struct spreadsheet_t a;
+FSeek(0x665800); struct spreadsheet_t a;
+FSeek(0x66F000); struct spreadsheet_t a;
+FSeek(0x67E000); struct spreadsheet_t a;
+FSeek(0x687800); struct spreadsheet_t a;
+FSeek(0x68E800); struct spreadsheet_t a;
+FSeek(0x690000); struct spreadsheet_t a;
+FSeek(0x691800); struct spreadsheet_t a;
+FSeek(0x692000); struct spreadsheet_t a;
+FSeek(0x695000); struct spreadsheet_t a;
+FSeek(0x695800); struct spreadsheet_t a;
+FSeek(0x697000); struct spreadsheet_t a;
+FSeek(0x697800); struct spreadsheet_t a;
+FSeek(0x698000); struct spreadsheet_t a;
+FSeek(0x699000); struct spreadsheet_t a;
+FSeek(0x699800); struct spreadsheet_t a;
+FSeek(0x69A000); struct spreadsheet_t a; // empty
+FSeek(0x69A800); struct spreadsheet_t a;
+FSeek(0x6A1800); struct spreadsheet_t a; // empty
+FSeek(0x6A2000); struct spreadsheet_t a;
+FSeek(0x6DE000); struct spreadsheet_t a;
+FSeek(0x6E4000); struct spreadsheet_t a;
+FSeek(0x6EC800); struct spreadsheet_t a;
+FSeek(0x6FA800); struct spreadsheet_t a;
+FSeek(0x703000); struct spreadsheet_t a;
+FSeek(0x709800); struct spreadsheet_t a;
+FSeek(0x70A800); struct spreadsheet_t a;
+FSeek(0x70C000); struct spreadsheet_t a;
+FSeek(0x70C800); struct spreadsheet_t a;
+FSeek(0x70F000); struct spreadsheet_t a;
+FSeek(0x70F800); struct spreadsheet_t a;
+FSeek(0x711000); struct spreadsheet_t a;
+FSeek(0x711800); struct spreadsheet_t a;
+FSeek(0x712000); struct spreadsheet_t a;
+FSeek(0x713000); struct spreadsheet_t a;
+FSeek(0x713800); struct spreadsheet_t a;
+FSeek(0x714000); struct spreadsheet_t a; // empty
+FSeek(0x714800); struct spreadsheet_t a;
+FSeek(0x71C000); struct spreadsheet_t a; // empty
+FSeek(0x71C800); struct spreadsheet_t a;
+FSeek(0x753800); struct spreadsheet_t a;
+FSeek(0x759800); struct spreadsheet_t a;
+FSeek(0x762800); struct spreadsheet_t a;
+FSeek(0x76F800); struct spreadsheet_t a;
+FSeek(0x777800); struct spreadsheet_t a;
+FSeek(0x77E000); struct spreadsheet_t a;
+FSeek(0x77F800); struct spreadsheet_t a;
+FSeek(0x781000); struct spreadsheet_t a;
+FSeek(0x781800); struct spreadsheet_t a;
+FSeek(0x784000); struct spreadsheet_t a;
+FSeek(0x784800); struct spreadsheet_t a;
+FSeek(0x785000); struct spreadsheet_t a;
+FSeek(0x785800); struct spreadsheet_t a;
+FSeek(0x786000); struct spreadsheet_t a;
+FSeek(0x786800); struct spreadsheet_t a;
+FSeek(0x787000); struct spreadsheet_t a;
+FSeek(0x787800); struct spreadsheet_t a; // empty
+FSeek(0x788000); struct spreadsheet_t a;
+FSeek(0x78F000); struct spreadsheet_t a; // empty
+FSeek(0x78F800); struct spreadsheet_t a;
+FSeek(0x7CB800); struct spreadsheet_t a;
+FSeek(0x7D1800); struct spreadsheet_t a;
+FSeek(0x7DA800); struct spreadsheet_t a;
+FSeek(0x7E8800); struct spreadsheet_t a;
+FSeek(0x7F1000); struct spreadsheet_t a;
+FSeek(0x7F7800); struct spreadsheet_t a;
+FSeek(0x7F9000); struct spreadsheet_t a;
+FSeek(0x7FA800); struct spreadsheet_t a;
+FSeek(0x7FB000); struct spreadsheet_t a;
+FSeek(0x7FD800); struct spreadsheet_t a;
+FSeek(0x7FE000); struct spreadsheet_t a;
+FSeek(0x7FE800); struct spreadsheet_t a;
+FSeek(0x7FF000); struct spreadsheet_t a;
+FSeek(0x7FF800); struct spreadsheet_t a;
+FSeek(0x800000); struct spreadsheet_t a;
+FSeek(0x800800); struct spreadsheet_t a;
+FSeek(0x801000); struct spreadsheet_t a; // empty
+FSeek(0x801800); struct spreadsheet_t a;
+FSeek(0x809000); struct spreadsheet_t a; // empty
+FSeek(0x809800); struct spreadsheet_t a;
+FSeek(0x810800); struct spreadsheet_t a;
+FSeek(0x813000); struct spreadsheet_t a;
+FSeek(0x815800); struct spreadsheet_t a;
+FSeek(0x818000); struct spreadsheet_t a;
+FSeek(0x81E800); struct spreadsheet_t a;
+FSeek(0x825000); struct spreadsheet_t a;
+FSeek(0x827800); struct spreadsheet_t a;
+FSeek(0x82E800); struct spreadsheet_t a;
+FSeek(0x836000); struct spreadsheet_t a;
+FSeek(0x83D800); struct spreadsheet_t a;
+FSeek(0x844800); struct spreadsheet_t a;
+FSeek(0x847000); struct spreadsheet_t a;
+FSeek(0x849800); struct spreadsheet_t a;
+FSeek(0x84C000); struct spreadsheet_t a;
+FSeek(0x853800); struct spreadsheet_t a;
+FSeek(0x85A800); struct spreadsheet_t a;
+
+
 
 */
 
