@@ -15,24 +15,25 @@ FSeek(0x4000);
 
 uint thing, unk, more[3], count;
 
+local int base_offset = FTell();
 struct
 {
     uint hashcode <format=hex>,
          offset <format=hex>, offsetb <format=hex>,
          unk <format=hex>;
     
-    local uint off_a <format=hex> = startof(offset ) + offset;
-    local uint off_b <format=hex> = startof(offsetb) + offsetb;
+    local uint abs_off_a <format=hex> = startof(offset ) + offset;
+    local uint abs_off_b <format=hex> = startof(offsetb) + offsetb;
 
-    local uint len = (off_b - off_a) / sizeof(wchar_t);
+    local uint len = (abs_off_b - abs_off_a) / sizeof(wchar_t);
 
     local uint saved <format=hex> = FTell();
 
-    FSeek(off_a);
+    FSeek(abs_off_a);
     wchar_t str[len];
     FSeek(saved);
 
 
-} entry[count];
+} entry[count] <optimize=false>;
 
 uint next;
