@@ -11,33 +11,35 @@
 //   History: 
 //------------------------------------------------
 
-FSeek(0x4000);
-
-uint thing, unk, more[3], count;
-
-local int base_offset = FTell();
-struct
+struct spreadsheet_t
 {
-    uint hashcode <format=hex>,
-         offset <format=hex>, offsetb <format=hex>,
-         unk <format=hex>;
+    uint thing, unk, more[3], count;
+    struct
+    {
+        uint hashcode <format=hex>,
+             offset <format=hex>, offsetb <format=hex>,
+             unk <format=hex>;
+        
+        local uint abs_off_a <format=hex> = startof(offset ) + offset;
+        local uint abs_off_b <format=hex> = startof(offsetb) + offsetb;
     
-    local uint abs_off_a <format=hex> = startof(offset ) + offset;
-    local uint abs_off_b <format=hex> = startof(offsetb) + offsetb;
+        local uint len = (abs_off_b - abs_off_a) / sizeof(wchar_t);
+    
+        local uint saved <format=hex> = FTell();
+    
+        FSeek(abs_off_a);
+        wchar_t str[len];
+        FSeek(saved);
+    
+    
+    } entry[count] <optimize=false>;
 
-    local uint len = (abs_off_b - abs_off_a) / sizeof(wchar_t);
+    local int i;
+    for (i = 0; i<count; i++)
+        Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
 
-    local uint saved <format=hex> = FTell();
-
-    FSeek(abs_off_a);
-    wchar_t str[len];
-    FSeek(saved);
+};
 
 
-} entry[count] <optimize=false>;
-
-uint next;
-
-local int i;
-for (i = 0; i<count; i++)
-    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
+FSeek( 0x4000); struct spreadsheet_t a;
+FSeek(0x3f000); struct spreadsheet_t a;
