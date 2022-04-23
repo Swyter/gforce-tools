@@ -13,7 +13,7 @@
 
 struct spreadsheet_t
 {
-    uint thing <format=hex>, unk, more[3], count;
+    uint next_spreadsheet_addr <format=hex>, unk, more[3], count;
     struct
     {
         uint hashcode <format=hex>,
@@ -35,10 +35,10 @@ struct spreadsheet_t
     } entry[count] <optimize=false, read=Str("[%x] %s", hashcode, str)>;
 
 
-    Printf("***spreadsheet--\r\n");
+    Printf("***spreadsheet at %#x--\r\n", next_spreadsheet_addr);
     local int i;
-    for (i = 0; i<count; i++)
-        Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
+    //for (i = 0; i<count; i++)
+    //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
     Printf("--\r\n");
 
 };
@@ -46,3 +46,25 @@ struct spreadsheet_t
 
 FSeek( 0x4000); struct spreadsheet_t a;
 FSeek(0x3f000); struct spreadsheet_t a;
+FSeek(0x45000); struct spreadsheet_t a;
+FSeek(0x4E000); struct spreadsheet_t a;
+FSeek(0x5B800); struct spreadsheet_t a;
+FSeek(0x64000); struct spreadsheet_t a;
+FSeek(0x6B000); struct spreadsheet_t a;
+FSeek(0x6C800); struct spreadsheet_t a;
+FSeek(0x6E000); struct spreadsheet_t a;
+FSeek(0x6E800); struct spreadsheet_t a;
+FSeek(0x75000); struct spreadsheet_t a;
+FSeek(0x75800); struct spreadsheet_t a;
+FSeek(0x77800); struct spreadsheet_t a;
+FSeek(0x78000); struct spreadsheet_t a;
+FSeek(0x79800); struct spreadsheet_t a;
+FSeek(0x7A800); struct spreadsheet_t a;
+FSeek(0x7B000); struct spreadsheet_t a;
+FSeek(0x7B800); struct spreadsheet_t a;
+FSeek(0x7C000); struct spreadsheet_t a; // credits
+FSeek(0x83000); struct spreadsheet_t a;
+FSeek(0x83800); struct spreadsheet_t a;
+
+
+
