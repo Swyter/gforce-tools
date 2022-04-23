@@ -62,7 +62,7 @@ FSeek(0x079800); struct spreadsheet_t a; // Wii/Revolution
 FSeek(0x07A800); struct spreadsheet_t a;
 FSeek(0x07B000); struct spreadsheet_t a; // Xenon
 FSeek(0x07B800); struct spreadsheet_t a; // empty
-FSeek(0x07C000); struct spreadsheet_t a; // credits
+FSeek(0x07C000); struct spreadsheet_t a; // credits, spanish credits at 714800h, first spanish one at 6A2000h
 FSeek(0x083000); struct spreadsheet_t a; // empty
 FSeek(0x083800); struct spreadsheet_t a;
 FSeek(0x0BE800); struct spreadsheet_t a;
@@ -200,7 +200,7 @@ FSeek(0x3CF000); struct spreadsheet_t a;
 
 
 local int i; local uint s = 0x4000;
-for (i = 0; i<150; i++)
+for (i = 0; i<357; i++)
 {
 
     FSeek(s);
