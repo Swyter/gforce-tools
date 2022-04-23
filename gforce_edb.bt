@@ -44,6 +44,8 @@ typedef struct spreadsheet
 } spreadsheet_t <read=Str("[%x] %u elements", startof(this), this.count)>;
 
 /*
+
+// english
 FSeek(0x004000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x03F000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x045000); struct spreadsheet_t a; //  238 elements  
@@ -65,7 +67,7 @@ FSeek(0x07B800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x07C000); struct spreadsheet_t a; //  241 elements  // credits, spanish credits at 714800h, first spanish one at 6A2000h
 FSeek(0x083000); struct spreadsheet_t a; //    0 elements  // empty
 
-
+// english
 FSeek(0x083800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x0BE800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x0C4800); struct spreadsheet_t a; //  238 elements  
@@ -87,7 +89,7 @@ FSeek(0x0FB000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x0FB800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x102800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// danish
 FSeek(0x103000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x13B000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x141000); struct spreadsheet_t a; //  238 elements  
@@ -109,7 +111,7 @@ FSeek(0x172000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x172800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x179800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// dutch / nederlands
 FSeek(0x17A000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x1B3800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x1B9800); struct spreadsheet_t a; //  238 elements  
@@ -131,7 +133,7 @@ FSeek(0x1E9000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x1E9800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x1F0800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// french
 FSeek(0x1F1000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x230800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x237000); struct spreadsheet_t a; //  238 elements  
@@ -153,7 +155,7 @@ FSeek(0x26B800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x26C000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x273000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// german
 FSeek(0x273800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x2B1000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x2B7800); struct spreadsheet_t a; //  238 elements  
@@ -175,7 +177,7 @@ FSeek(0x2EA800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x2EB000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x2F2000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// italian
 FSeek(0x2F2800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x32F000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x335000); struct spreadsheet_t a; //  238 elements  
@@ -197,7 +199,7 @@ FSeek(0x364800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x365000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x36C000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// norwegian / norsk
 FSeek(0x36C800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x3A3000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x3A8800); struct spreadsheet_t a; //  238 elements  
@@ -219,7 +221,7 @@ FSeek(0x3D5800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x3D6000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x3DD000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// spanish
 FSeek(0x3DD800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x419800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x41F800); struct spreadsheet_t a; //  238 elements  
@@ -241,7 +243,7 @@ FSeek(0x44F800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x450000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x457800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// swedish
 FSeek(0x458000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x48F000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x495000); struct spreadsheet_t a; //  238 elements  
@@ -263,7 +265,7 @@ FSeek(0x4C2800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x4C3000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x4CA000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// russian
 FSeek(0x4CA800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x505000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x50A800); struct spreadsheet_t a; //  238 elements  
@@ -285,7 +287,7 @@ FSeek(0x538800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x539000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x540000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// czech
 FSeek(0x540800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x576000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x57B800); struct spreadsheet_t a; //  238 elements  
@@ -307,7 +309,7 @@ FSeek(0x5A6000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x5A6800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x5AD800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// polish
 FSeek(0x5AE000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x5E7800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x5ED000); struct spreadsheet_t a; //  238 elements  
@@ -329,7 +331,7 @@ FSeek(0x617800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x618000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x61F000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// french
 FSeek(0x61F800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x65F000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x665800); struct spreadsheet_t a; //  238 elements  
@@ -351,7 +353,7 @@ FSeek(0x69A000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x69A800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x6A1800); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// spanish
 FSeek(0x6A2000); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x6DE000); struct spreadsheet_t a; //  150 elements  
 FSeek(0x6E4000); struct spreadsheet_t a; //  238 elements  
@@ -373,7 +375,7 @@ FSeek(0x714000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x714800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x71C000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// hungarian
 FSeek(0x71C800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x753800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x759800); struct spreadsheet_t a; //  238 elements  
@@ -395,7 +397,7 @@ FSeek(0x787800); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x788000); struct spreadsheet_t a; //  241 elements  
 FSeek(0x78F000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
+// portuguese
 FSeek(0x78F800); struct spreadsheet_t a; // 1804 elements  
 FSeek(0x7CB800); struct spreadsheet_t a; //  150 elements  
 FSeek(0x7D1800); struct spreadsheet_t a; //  238 elements  
@@ -417,23 +419,23 @@ FSeek(0x801000); struct spreadsheet_t a; //    0 elements  // empty
 FSeek(0x801800); struct spreadsheet_t a; //  241 elements  
 FSeek(0x809000); struct spreadsheet_t a; //    0 elements  // empty 
 
-
-FSeek(0x809800); struct spreadsheet_t a; //  104 elements  
+// achievements?
+FSeek(0x809800); struct spreadsheet_t a; //  104 elements  // spanish
 FSeek(0x810800); struct spreadsheet_t a; //  104 elements  
 FSeek(0x813000); struct spreadsheet_t a; //  104 elements  
 FSeek(0x815800); struct spreadsheet_t a; //  104 elements  
-FSeek(0x818000); struct spreadsheet_t a; //  104 elements  
-FSeek(0x81E800); struct spreadsheet_t a; //  104 elements  
+FSeek(0x818000); struct spreadsheet_t a; //  104 elements  // english
+FSeek(0x81E800); struct spreadsheet_t a; //  104 elements  // english
 FSeek(0x825000); struct spreadsheet_t a; //  104 elements  
-FSeek(0x827800); struct spreadsheet_t a; //  104 elements  
-FSeek(0x82E800); struct spreadsheet_t a; //  104 elements  
-FSeek(0x836000); struct spreadsheet_t a; //  104 elements  
+FSeek(0x827800); struct spreadsheet_t a; //  104 elements  // german
+FSeek(0x82E800); struct spreadsheet_t a; //  104 elements  // french
+FSeek(0x836000); struct spreadsheet_t a; //  104 elements  // russian
 FSeek(0x83D800); struct spreadsheet_t a; //  104 elements  
 FSeek(0x844800); struct spreadsheet_t a; //  104 elements  
 FSeek(0x847000); struct spreadsheet_t a; //  104 elements  
-FSeek(0x849800); struct spreadsheet_t a; //  104 elements  
-FSeek(0x84C000); struct spreadsheet_t a; //  104 elements  
-FSeek(0x853800); struct spreadsheet_t a; //  104 elements  
+FSeek(0x849800); struct spreadsheet_t a; //  104 elements  // empty
+FSeek(0x84C000); struct spreadsheet_t a; //  104 elements  // italian
+FSeek(0x853800); struct spreadsheet_t a; //  104 elements  // spanish
 FSeek(0x85A800); struct spreadsheet_t a; //  104 elements  
 
 */
