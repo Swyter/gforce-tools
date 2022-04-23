@@ -68,6 +68,171 @@ FSeek(0x83800); struct spreadsheet_t a;
 FSeek(0xBE800); struct spreadsheet_t a;
 FSeek(0xC4800); struct spreadsheet_t a;
 FSeek(0xCD800); struct spreadsheet_t a;
+
+FSeek(0x004000); struct spreadsheet_t a;
+FSeek(0x03F000); struct spreadsheet_t a;
+FSeek(0x045000); struct spreadsheet_t a;
+FSeek(0x04E000); struct spreadsheet_t a;
+FSeek(0x05B800); struct spreadsheet_t a;
+FSeek(0x064000); struct spreadsheet_t a;
+FSeek(0x06B000); struct spreadsheet_t a;
+FSeek(0x06C800); struct spreadsheet_t a;
+FSeek(0x06E000); struct spreadsheet_t a;
+FSeek(0x06E800); struct spreadsheet_t a;
+FSeek(0x075000); struct spreadsheet_t a;
+FSeek(0x075800); struct spreadsheet_t a;
+FSeek(0x077800); struct spreadsheet_t a;
+FSeek(0x078000); struct spreadsheet_t a;
+FSeek(0x079800); struct spreadsheet_t a;
+FSeek(0x07A800); struct spreadsheet_t a;
+FSeek(0x07B000); struct spreadsheet_t a;
+FSeek(0x07B800); struct spreadsheet_t a; // empty
+FSeek(0x07C000); struct spreadsheet_t a;
+FSeek(0x083000); struct spreadsheet_t a; // empty
+FSeek(0x083800); struct spreadsheet_t a;
+FSeek(0x0BE800); struct spreadsheet_t a;
+FSeek(0x0C4800); struct spreadsheet_t a;
+FSeek(0x0CD800); struct spreadsheet_t a;
+
+FSeek(0x0DB000); struct spreadsheet_t a;
+FSeek(0x0E3800); struct spreadsheet_t a;
+FSeek(0x0EA800); struct spreadsheet_t a;
+FSeek(0x0EC000); struct spreadsheet_t a;
+FSeek(0x0ED800); struct spreadsheet_t a;
+FSeek(0x0EE000); struct spreadsheet_t a;
+FSeek(0x0F4800); struct spreadsheet_t a;
+FSeek(0x0F5000); struct spreadsheet_t a;
+FSeek(0x0F7000); struct spreadsheet_t a;
+FSeek(0x0F7800); struct spreadsheet_t a;
+FSeek(0x0F9000); struct spreadsheet_t a;
+FSeek(0x0FA000); struct spreadsheet_t a;
+FSeek(0x0FA800); struct spreadsheet_t a;
+FSeek(0x0FB000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x0FB800); struct spreadsheet_t a;
+FSeek(0x102800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x103000); struct spreadsheet_t a;
+FSeek(0x13B000); struct spreadsheet_t a;
+FSeek(0x141000); struct spreadsheet_t a;
+FSeek(0x14A000); struct spreadsheet_t a;
+FSeek(0x158000); struct spreadsheet_t a;
+FSeek(0x161000); struct spreadsheet_t a;
+FSeek(0x168000); struct spreadsheet_t a;
+FSeek(0x169800); struct spreadsheet_t a;
+FSeek(0x16B000); struct spreadsheet_t a;
+FSeek(0x16B800); struct spreadsheet_t a;
+FSeek(0x16E000); struct spreadsheet_t a;
+FSeek(0x16E800); struct spreadsheet_t a;
+FSeek(0x16F000); struct spreadsheet_t a;
+FSeek(0x16F800); struct spreadsheet_t a;
+FSeek(0x170000); struct spreadsheet_t a;
+FSeek(0x171000); struct spreadsheet_t a;
+FSeek(0x171800); struct spreadsheet_t a;
+FSeek(0x172000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x172800); struct spreadsheet_t a;
+FSeek(0x179800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x17A000); struct spreadsheet_t a;
+FSeek(0x1B3800); struct spreadsheet_t a;
+FSeek(0x1B9800); struct spreadsheet_t a;
+FSeek(0x1C2000); struct spreadsheet_t a;
+FSeek(0x1CF800); struct spreadsheet_t a;
+FSeek(0x1D8000); struct spreadsheet_t a;
+FSeek(0x1DE800); struct spreadsheet_t a;
+FSeek(0x1DF800); struct spreadsheet_t a;
+FSeek(0x1E1000); struct spreadsheet_t a;
+FSeek(0x1E1800); struct spreadsheet_t a;
+FSeek(0x1E4000); struct spreadsheet_t a;
+FSeek(0x1E4800); struct spreadsheet_t a;
+FSeek(0x1E6000); struct spreadsheet_t a;
+FSeek(0x1E6800); struct spreadsheet_t a;
+FSeek(0x1E7000); struct spreadsheet_t a;
+FSeek(0x1E8000); struct spreadsheet_t a;
+FSeek(0x1E8800); struct spreadsheet_t a;
+FSeek(0x1E9000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x1E9800); struct spreadsheet_t a;
+FSeek(0x1F0800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x1F1000); struct spreadsheet_t a;
+FSeek(0x230800); struct spreadsheet_t a;
+FSeek(0x237000); struct spreadsheet_t a;
+FSeek(0x240800); struct spreadsheet_t a;
+FSeek(0x24F800); struct spreadsheet_t a;
+FSeek(0x259000); struct spreadsheet_t a;
+FSeek(0x260000); struct spreadsheet_t a;
+FSeek(0x261800); struct spreadsheet_t a;
+FSeek(0x263000); struct spreadsheet_t a;
+FSeek(0x263800); struct spreadsheet_t a;
+FSeek(0x266800); struct spreadsheet_t a;
+FSeek(0x267000); struct spreadsheet_t a;
+FSeek(0x268800); struct spreadsheet_t a;
+FSeek(0x269000); struct spreadsheet_t a;
+FSeek(0x269800); struct spreadsheet_t a;
+FSeek(0x26A800); struct spreadsheet_t a;
+FSeek(0x26B000); struct spreadsheet_t a;
+FSeek(0x26B800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x26C000); struct spreadsheet_t a;
+FSeek(0x273000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x273800); struct spreadsheet_t a;
+FSeek(0x2B1000); struct spreadsheet_t a;
+FSeek(0x2B7800); struct spreadsheet_t a;
+FSeek(0x2C1000); struct spreadsheet_t a;
+FSeek(0x2CF800); struct spreadsheet_t a;
+FSeek(0x2D8800); struct spreadsheet_t a;
+FSeek(0x2DF800); struct spreadsheet_t a;
+FSeek(0x2E1000); struct spreadsheet_t a;
+FSeek(0x2E2800); struct spreadsheet_t a;
+FSeek(0x2E3000); struct spreadsheet_t a;
+FSeek(0x2E5800); struct spreadsheet_t a;
+FSeek(0x2E6000); struct spreadsheet_t a;
+FSeek(0x2E7800); struct spreadsheet_t a;
+FSeek(0x2E8000); struct spreadsheet_t a;
+FSeek(0x2E8800); struct spreadsheet_t a;
+FSeek(0x2E9800); struct spreadsheet_t a;
+FSeek(0x2EA000); struct spreadsheet_t a;
+FSeek(0x2EA800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x2EB000); struct spreadsheet_t a;
+FSeek(0x2F2000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x2F2800); struct spreadsheet_t a;
+FSeek(0x32F000); struct spreadsheet_t a;
+FSeek(0x335000); struct spreadsheet_t a;
+FSeek(0x33D800); struct spreadsheet_t a;
+FSeek(0x34B800); struct spreadsheet_t a;
+FSeek(0x353800); struct spreadsheet_t a;
+FSeek(0x35A000); struct spreadsheet_t a;
+FSeek(0x35B000); struct spreadsheet_t a;
+FSeek(0x35C800); struct spreadsheet_t a;
+FSeek(0x35D000); struct spreadsheet_t a;
+FSeek(0x35F800); struct spreadsheet_t a;
+FSeek(0x360000); struct spreadsheet_t a;
+FSeek(0x361800); struct spreadsheet_t a;
+FSeek(0x362000); struct spreadsheet_t a;
+FSeek(0x362800); struct spreadsheet_t a;
+FSeek(0x363800); struct spreadsheet_t a;
+FSeek(0x364000); struct spreadsheet_t a;
+FSeek(0x364800); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x365000); struct spreadsheet_t a;
+FSeek(0x36C000); struct spreadsheet_t a;
+*WARNING Line 35: Variable 'entry' not generated since array size is zero. 
+FSeek(0x36C800); struct spreadsheet_t a;
+FSeek(0x3A3000); struct spreadsheet_t a;
+FSeek(0x3A8800); struct spreadsheet_t a;
+FSeek(0x3B1000); struct spreadsheet_t a;
+FSeek(0x3BE000); struct spreadsheet_t a;
+FSeek(0x3C6000); struct spreadsheet_t a;
+FSeek(0x3CC000); struct spreadsheet_t a;
+FSeek(0x3CD000); struct spreadsheet_t a;
+FSeek(0x3CE800); struct spreadsheet_t a;
+FSeek(0x3CF000); struct spreadsheet_t a;
+
 */
 
 
@@ -76,6 +241,6 @@ for (i = 0; i<150; i++)
 {
 
     FSeek(s);
-    Printf("FSeek(%#x); struct spreadsheet_t a;\r\n", FTell());
+    Printf("FSeek(0x%06X); struct spreadsheet_t a;\r\n", FTell());
     struct spreadsheet_t a; s = a.next_spreadsheet_addr;
 }
