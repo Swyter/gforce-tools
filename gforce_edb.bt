@@ -11,7 +11,7 @@
 //   History: 
 //------------------------------------------------
 
-struct spreadsheet_t
+typedef struct spreadsheet
 {
     uint next_spreadsheet_addr <format=hex>, unk, more[3], count;
     struct
@@ -41,7 +41,7 @@ struct spreadsheet_t
     //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
     Printf("--\r\n");
 
-};
+} spreadsheet_t <read=Str("[%x] %u elements", unk, this.count)>;
 
 
 FSeek( 0x4000); struct spreadsheet_t a;
@@ -65,6 +65,11 @@ FSeek(0x7B800); struct spreadsheet_t a;
 FSeek(0x7C000); struct spreadsheet_t a; // credits
 FSeek(0x83000); struct spreadsheet_t a;
 FSeek(0x83800); struct spreadsheet_t a;
+FSeek(0xBE800); struct spreadsheet_t a;
+FSeek(0xC4800); struct spreadsheet_t a;
+FSeek(0xCD800); struct spreadsheet_t a;
+
+
 
 
 
