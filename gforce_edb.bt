@@ -49,19 +49,19 @@ FSeek(0x3f000); struct spreadsheet_t a;
 FSeek(0x45000); struct spreadsheet_t a;
 FSeek(0x4E000); struct spreadsheet_t a;
 FSeek(0x5B800); struct spreadsheet_t a;
-FSeek(0x64000); struct spreadsheet_t a;
-FSeek(0x6B000); struct spreadsheet_t a;
+FSeek(0x64000); struct spreadsheet_t a; // Chapter 5
+FSeek(0x6B000); struct spreadsheet_t a; // Chapter 6
 FSeek(0x6C800); struct spreadsheet_t a;
 FSeek(0x6E000); struct spreadsheet_t a;
 FSeek(0x6E800); struct spreadsheet_t a;
-FSeek(0x75000); struct spreadsheet_t a;
-FSeek(0x75800); struct spreadsheet_t a;
-FSeek(0x77800); struct spreadsheet_t a;
+FSeek(0x75000); struct spreadsheet_t a; // Windows/PC
+FSeek(0x75800); struct spreadsheet_t a; // PS2
+FSeek(0x77800); struct spreadsheet_t a; // Xbox
 FSeek(0x78000); struct spreadsheet_t a;
-FSeek(0x79800); struct spreadsheet_t a;
+FSeek(0x79800); struct spreadsheet_t a; // Wii/Revolution
 FSeek(0x7A800); struct spreadsheet_t a;
-FSeek(0x7B000); struct spreadsheet_t a;
-FSeek(0x7B800); struct spreadsheet_t a;
+FSeek(0x7B000); struct spreadsheet_t a; // Xenon
+FSeek(0x7B800); struct spreadsheet_t a; // empty
 FSeek(0x7C000); struct spreadsheet_t a; // credits
 FSeek(0x83000); struct spreadsheet_t a;
 FSeek(0x83800); struct spreadsheet_t a;
