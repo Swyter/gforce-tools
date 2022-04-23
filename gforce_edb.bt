@@ -11,8 +11,6 @@
 //   History: 
 //------------------------------------------------
 
-local uint saved;
-
 FSeek(0x4000);
 
 uint thing, unk, more[3], count;
@@ -23,9 +21,15 @@ struct
          offset <format=hex>, offsetb <format=hex>,
          unk <format=hex>;
     
-    saved = FTell();
-    FSeek(startof(offset) + offset);
-    wstring str;
+    local uint off_a <format=hex> = startof(offset ) + offset;
+    local uint off_b <format=hex> = startof(offsetb) + offsetb;
+
+    local uint len = (off_b - off_a) / sizeof(wchar_t);
+
+    local uint saved <format=hex> = FTell();
+
+    FSeek(off_a);
+    wchar_t str[len];
     FSeek(saved);
 
 
