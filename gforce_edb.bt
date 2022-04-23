@@ -35,15 +35,15 @@ typedef struct spreadsheet
     } entry[count] <optimize=false, read=Str("[%x] %s", hashcode, str)>;
 
 
-    Printf("***spreadsheet at %#x--\r\n", next_spreadsheet_addr);
-    local int i;
+    //Printf("***spreadsheet at %#x--\r\n", next_spreadsheet_addr);
+    //local int i;
     //for (i = 0; i<count; i++)
     //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
-    Printf("--\r\n");
+    //Printf("--\r\n");
 
 } spreadsheet_t <read=Str("[%x] %u elements", unk, this.count)>;
 
-
+/*
 FSeek( 0x4000); struct spreadsheet_t a;
 FSeek(0x3f000); struct spreadsheet_t a;
 FSeek(0x45000); struct spreadsheet_t a;
@@ -68,8 +68,14 @@ FSeek(0x83800); struct spreadsheet_t a;
 FSeek(0xBE800); struct spreadsheet_t a;
 FSeek(0xC4800); struct spreadsheet_t a;
 FSeek(0xCD800); struct spreadsheet_t a;
+*/
 
 
+local int i; local uint s = 0x4000;
+for (i = 0; i<150; i++)
+{
 
-
-
+    FSeek(s);
+    Printf("FSeek(%#x); struct spreadsheet_t a;\r\n", FTell());
+    struct spreadsheet_t a; s = a.next_spreadsheet_addr;
+}
