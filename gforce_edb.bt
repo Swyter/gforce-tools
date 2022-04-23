@@ -11,11 +11,24 @@
 //   History: 
 //------------------------------------------------
 
+local uint saved;
 
 FSeek(0x4000);
 
 uint thing, unk, more[3], count;
 
-struct { uint hashcode <format=hex>, offset <format=hex>, offsetb <format=hex>, unk <format=hex>; } entry[count];
+struct
+{
+    uint hashcode <format=hex>,
+         offset <format=hex>, offsetb <format=hex>,
+         unk <format=hex>;
+    
+    saved = FTell();
+    FSeek(startof(offset) + offset);
+    wstring str;
+    FSeek(saved);
+
+
+} entry[count];
 
 uint next;
