@@ -14,8 +14,8 @@
 
 FSeek(0x4000);
 
-uint thing, count;
+uint thing, unk, more[3], count;
 
-struct { uint entry, entryb, entryc[2]; } entry[1805];
+struct { uint entry, entryb, entryc[2]; } entry[count];
 
 uint next;
