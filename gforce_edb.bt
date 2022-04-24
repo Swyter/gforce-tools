@@ -34,15 +34,14 @@ typedef struct spreadsheet
     } entry[count] <optimize=false, read=Str("[%x] %s", hashcode, str)>;
 
 
-    Printf("***spreadsheet at %#x, %u elements--\r\n", next_spreadsheet_addr, count);
+    //Printf("***spreadsheet at %#x, %u elements--\r\n", next_spreadsheet_addr, count);
     local int i;
-    //for (i = 0; i<count; i++)
-    //    Printf("%#x %s\r\n", entry[i].hashcode, entry[i].str);
-    Printf("--\r\n");
+    for (i = 0; i<count; i++)
+        Printf('"%#x"^^^ "%s"\r\n', entry[i].hashcode, entry[i].str);
+    //Printf("--\r\n");
 
 } spreadsheet_t <read=Str("[%x] %u elements", startof(this), this.count)>;
 
-/*
 
 // english
 FSeek(0x004000); struct spreadsheet_t a; // 1804 elements  // options, more, chapter 1, 2 and 3
@@ -437,8 +436,7 @@ FSeek(0x84C000); struct spreadsheet_t a; //  104 elements  // italian
 FSeek(0x853800); struct spreadsheet_t a; //  104 elements  // spanish
 FSeek(0x85A800); struct spreadsheet_t a; //  104 elements  
 
-*/
-
+/*
 local int i; local uint s = 0x4000;
 for (i = 0; s < FileSize(); i++)
 {
@@ -447,3 +445,4 @@ for (i = 0; s < FileSize(); i++)
     //Printf("%sFSeek(0x%06X); struct spreadsheet_t a; // %4u elements %s \r\n",  a.count == 1804 ? "\n\n" : "", startof(a), a.count, a.count==0 ? " // empty" : "");
 }
 
+*/
