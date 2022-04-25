@@ -13,6 +13,18 @@
 RunTemplate("gforce_filelistbin.bt");
 
 
-char folder_path[] = InputDirectory("Choose a folder where to extract the EngineX-packed files");
+char folder_path[] = "F:/SteamLibrary/steamapps/common/G-Force/data"; //InputDirectory("Choose a folder where to extract the EngineX-packed files");
+char file_name  [] = GetFileName();
+Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
+               "                       at folder: %s\n\n", file_name, folder_path);
 
-Printf("%s", folder_path);
+int i = 0;
+
+int newfile = FileOpen("");
+
+for (i = 0; i < count; i++)
+    Printf("[i] %3u, %s\n", i, buf[i].s);
+    FileSaveRange(folder_path + "lo-lol", 0, 1);
+
+
+Printf("\n[+] Done\n");
