@@ -1,0 +1,18 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Script File
+//
+//      File: Disney's G-Force - Filelist.bin (extractor script)
+//   Authors: Swyter
+//   Version: 
+//   Purpose: 
+//  Category: 
+//   History: 
+//------------------------------------------------
+
+/* swy: run the original template to fill out the data structures in the template results; we depend on this to work */
+RunTemplate("gforce_filelistbin.bt");
+
+
+char folder_path[] = InputDirectory("Choose a folder where to extract the EngineX-packed files");
+
+Printf("%s", folder_path);
