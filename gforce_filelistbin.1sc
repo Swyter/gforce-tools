@@ -38,8 +38,10 @@ for (i = 0; i < count; i++)
 
     FileSelect(bigfile);
 
-    MakeDir(FileNameGetPath(target_folder + "/a/asdfasdf"));
-    FileSaveRange(target_folder + "/a/asdfasdf", offset, len);
+    target_file = target_folder + "/" + target_file;
+
+    MakeDir(FileNameGetPath(target_file));
+    FileSaveRange(target_file, offset, len);
     FileClose();
 
     FileSelect(actfile);
