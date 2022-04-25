@@ -18,7 +18,7 @@ char filelist_path[] = GetFileName();
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
                "                       at folder: %s\n\n", filelist_path, target_folder);
 
-int i = 0, idx_act_file, idx_big_file, len, offset;
+int i = 0, idx_act_file, idx_big_file, len, offset, hashcode;
 char big_file[], opened_big_file[], target_file[];
 
 idx_act_file = GetFileNum();
@@ -26,11 +26,12 @@ idx_act_file = GetFileNum();
 /* swy: run for every entry as displayed by our ran template */
 for (i = 0; i < count; i++)
 {
-    Printf("[i] %3u, %s\n", i, buf[i].s);
-
             len = elem[i].len,
          offset = elem[i].loc_offset;
+       hashcode = elem[i].hashcode;
     target_file =  buf[i].s;
+
+    Printf("[i] %3u, [%#08x] %s (%#x bytes)\n", i, hashcode, target_file, len);
 
     /* swy: we can't use virtual drive paths like «X:» on folder names; so pick something else */
     if (target_file[1] == ':')
@@ -59,6 +60,14 @@ for (i = 0; i < count; i++)
 
     target_file = target_folder + "/" + target_file;
 
+    /* swy: are we a GeoFile/EDB? the grab the full size, not only the first part/chunk, the Filelist entry lies */
+    if (ReadUInt(offset + 0) == 0x47454f4d /* 'MOEG' */ && hashcode == ReadUInt(offset + 4) && ReadUInt(offset + 0x14) != len)
+    {
+        len = ReadUInt(offset + 0x14);
+        Printf("[!]        \\_ (Detected EDB file with mismatched size; writing %#x bytes instead)\n\n", len);
+    }
+
+    /* swy: dump it like there's no tomorrow ¯\_(ツ)_/¯ */
     MakeDir(FileNameGetPath(target_file));
     FileSaveRange(target_file, offset, len);
 
