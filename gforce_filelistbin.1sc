@@ -18,8 +18,8 @@ char filelist_path[] = GetFileName();
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
                "                       at folder: %s\n\n", filelist_path, target_folder);
 
-int i = 0, actfile, bigfile;
-char big_file[];
+int i = 0, actfile, bigfile, len, offset;
+char big_file[], target_file[];
 
 
 for (i = 0; i < count; i++)
@@ -28,17 +28,20 @@ for (i = 0; i < count; i++)
 
     big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[i].loc_file));
 
-    local uint len = elem[i].len, offset = elem[i].loc_offset;
+    len = elem[i].len, offset = elem[i].loc_offset; target_file = buf[i].s;
+
+    if (target_file[1] == ':')
+        target_file[1]  = ';';
 
     actfile = GetFileNum();
     bigfile = FileOpen(big_file);
 
     FileSelect(bigfile);
 
-    Printf("[i] %3u\n", i, el.hashcode);
-
-    FileSaveRange(target_folder + "/lo-lol", 0, 1);
+    MakeDir(FileNameGetPath(target_folder + "/a/asdfasdf"));
+    FileSaveRange(target_folder + "/a/asdfasdf", offset, len);
     FileClose();
+
     FileSelect(actfile);
 }
 
