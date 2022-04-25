@@ -13,18 +13,34 @@
 RunTemplate("gforce_filelistbin.bt");
 
 
-char folder_path[] = "F:/SteamLibrary/steamapps/common/G-Force/data"; //InputDirectory("Choose a folder where to extract the EngineX-packed files");
-char file_name  [] = GetFileName();
+char target_folder[] = "F:/SteamLibrary/steamapps/common/G-Force/data"; //InputDirectory("Choose a folder where to extract the EngineX-packed files");
+char filelist_path[] = GetFileName();
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
-               "                       at folder: %s\n\n", file_name, folder_path);
+               "                       at folder: %s\n\n", filelist_path, target_folder);
 
-int i = 0;
+int i = 0, actfile, bigfile;
+char big_file[];
 
-int newfile = FileOpen("");
 
 for (i = 0; i < count; i++)
+{
     Printf("[i] %3u, %s\n", i, buf[i].s);
-    FileSaveRange(folder_path + "lo-lol", 0, 1);
+
+    big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[i].loc_file));
+
+    local uint len = elem[i].len, offset = elem[i].loc_offset;
+
+    actfile = GetFileNum();
+    bigfile = FileOpen(big_file);
+
+    FileSelect(bigfile);
+
+    Printf("[i] %3u\n", i, el.hashcode);
+
+    FileSaveRange(target_folder + "/lo-lol", 0, 1);
+    FileClose();
+    FileSelect(actfile);
+}
 
 
 Printf("\n[+] Done\n");
