@@ -64,7 +64,7 @@ for (i = 0; i < count; i++)
 
     target_file = target_folder + "/" + target_file;
 
-    /* swy: are we a GeoFile/EDB? the grab the full size, not only the first part/chunk, the Filelist entry lies */
+    /* swy: are we a GeoFile/EDB? then grab the full size, not only the first part/chunk, the Filelist entry lies */
     if (ReadUInt(offset + 0) == 0x47454f4d /* 'MOEG' */ && hashcode == ReadUInt(offset + 4) && ReadUInt(offset + 0x14) != len)
     {
         len = ReadUInt(offset + 0x14);

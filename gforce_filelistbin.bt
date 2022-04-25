@@ -1,7 +1,7 @@
 //------------------------------------------------
 //--- 010 Editor v12.0.1 Binary Template
 //
-//      File: Disney's G-Force - Filelist.bin
+//      File: Disney's G-Force - Filelist.bin (v6 and v7)
 //   Authors: Swyter
 //   Version: 2022.04.17
 //   Purpose: Opens the Filelist format for this version of EngineX.
@@ -9,12 +9,19 @@
 //            the big Filelist.000 it needs to start to find the matching file. And what size.
 //
 //            Unlike Sphinx and some other earlier games, the file paths are obfuscated/encrypted with
-//            some kind of rolling arithmetic thingie. Take a look below.
+//            some kind of rolling arithmetic thingie from version 7 onwards. Take a look below.
 //
 //  Category: Game
 // File Mask: *.bin
-//  ID Bytes: 07 00 00 00
 //------------------------------------------------
+
+local uint ver_test = ReadUInt();
+
+if (!(ver_test == 7 || ver_test == 6))
+{
+    Warning("Unsupported Filelist version: %u", ver_test);
+    Exit(-1);
+}
 
 /* swy: here's the nifty header */
 uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
@@ -53,7 +60,7 @@ for (i = 0; i<count; i++)
                 and minus the current character index in the string (which also starts from zero)
 
                 because we are working with individual bytes, they wrap around and we don't lose information */
-        cur_byte = ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
+        cur_byte = (ver == 6) ? ReadByte(cur + j) : ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
 
         j++; /* swy: this goes here because sometimes the paths are empty and only contain the final NULL terminator; which we want to include in the count here as part of the buffer; otherwise it's empty */
