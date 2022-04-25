@@ -18,7 +18,7 @@ char filelist_path[] = GetFileName();
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
                "                       at folder: %s\n\n", filelist_path, target_folder);
 
-int i = 0, idx_act_file, idx_big_file, len, offset, hashcode;
+int i = 0, idx_act_file, idx_big_file, len, offset <format=hex>, hashcode <format=hex>;
 char big_file[], opened_big_file[], target_file[];
 
 idx_act_file = GetFileNum();
@@ -30,6 +30,10 @@ for (i = 0; i < count; i++)
          offset = elem[i].loc_offset;
        hashcode = elem[i].hashcode;
     target_file =  buf[i].s;
+
+    /* swy: for some reason, some entries that end up having an asterisk in the XUtil output .txt don't get filenames */
+    if (target_file[0] == 0)
+        target_file = "__unk_name_hc_" + Str("%#08x_idx_%u", hashcode, i);
 
     Printf("[i] %3u, [%#08x] %s (%#x bytes)\n", i, hashcode, target_file, len);
 
