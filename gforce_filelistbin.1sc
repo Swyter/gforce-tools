@@ -3,13 +3,13 @@
 //
 //      File: Disney's G-Force - Filelist.bin (extractor script)
 //   Authors: Swyter
-//   Version: 
-//   Purpose: 
-//  Category: 
-//   History: 
+//   Version: 2022.04.25
+//   Purpose: Unpack files from the virtual filesystem in EngineX games of Filelist version 7.
+//  Category: Games
 //------------------------------------------------
 
-/* swy: run the original template to fill out the data structures in the template results; we depend on this to work */
+/* swy: run the original template to fill out the data structures in
+        the template results; we depend on this to work */
 RunTemplate("gforce_filelistbin.bt");
 
 
@@ -18,34 +18,53 @@ char filelist_path[] = GetFileName();
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
                "                       at folder: %s\n\n", filelist_path, target_folder);
 
-int i = 0, actfile, bigfile, len, offset;
-char big_file[], target_file[];
+int i = 0, idx_act_file, idx_big_file, len, offset;
+char big_file[], opened_big_file[], target_file[];
 
+idx_act_file = GetFileNum();
 
+/* swy: run for every entry as displayed by our ran template */
 for (i = 0; i < count; i++)
 {
     Printf("[i] %3u, %s\n", i, buf[i].s);
 
-    big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[i].loc_file));
+            len = elem[i].len,
+         offset = elem[i].loc_offset;
+    target_file =  buf[i].s;
 
-    len = elem[i].len, offset = elem[i].loc_offset; target_file = buf[i].s;
-
+    /* swy: we can't use virtual drive paths like «X:» on folder names; so pick something else */
     if (target_file[1] == ':')
         target_file[1]  = ';';
 
-    actfile = GetFileNum();
-    bigfile = FileOpen(big_file);
+    /* swy: build the correct extension from the index; the usual pattern is Filelist.000, but anything goes */
+    big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[0].loc_file));
 
-    FileSelect(bigfile);
+    /* swy: optimization; to avoid reopening and closing the same Filelist.NNN file for every iteration
+            only pay the price when we need a change (e.g. closing .000 and opening .001) */
+    if (big_file != opened_big_file)
+    {
+        if (idx_big_file)
+        {
+            FileSelect(idx_big_file);
+            FileClose();
+        }
+
+        idx_big_file = FileOpen(big_file);
+        opened_big_file = big_file;
+    }
+
+    /* swy: switch the active context to the Filelist.NNN file and
+            export the right subset/chunk from it */
+    FileSelect(idx_big_file);
 
     target_file = target_folder + "/" + target_file;
 
     MakeDir(FileNameGetPath(target_file));
     FileSaveRange(target_file, offset, len);
-    FileClose();
 
-    FileSelect(actfile);
+    FileSelect(idx_act_file);
 }
 
+FileSelect(idx_big_file); FileClose();
 
 Printf("\n[+] Done\n");
