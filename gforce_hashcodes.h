@@ -316,8 +316,8 @@
 #define HT_File_Misc_LevelData		 0x01c10010
 #define HT_File_Misc_Lipsync		 0x01c10011
 #define HT_File_Misc_Movie		 0x01c10013
-#define HT_File_Misc_PhsMaterials		 0x01c10015
-#define HT_File_Misc_PhsSounds		 0x01c10016
+#define HT_File_Misc_PhysMaterials		 0x01c10015
+#define HT_File_Misc_PhysSounds		 0x01c10016
 #define HT_File_Misc_Ragdoll		 0x01c10019
 #define HT_File_Misc_React		 0x01c1001a
 #define HT_File_Misc_RigidBodies		 0x01c1001b
@@ -330,7 +330,7 @@
 #define HT_File_Misc_CSCapture		 0x01c10027
 #define HT_File_Misc_Green		 0x01c10028
 #define HT_File_Misc_Achievements		 0x01c10029
-#define HT_File_Misc_Cred		 0x01c1002a
+#define HT_File_Misc_Credits		 0x01c1002a
 #define HT_File_Intro_GHUD		 0x01c30011
 #define HT_File_Intro_IntroScreen		 0x01c30014
 #define HT_File_Intro_Demo		 0x01c30015
@@ -2054,7 +2054,7 @@
 #define HT_Text_NotMyBad		  0x43003c97
 #define HT_Text_ShouldWeWeStayHereUntilSomeoneStopsTheseShredders		  0x43003c98
 #define HT_Text_Inactive		  0x43003c9b
-#define HT_Text_NOENTRY		  0x43003c9c
+#define HT_Text_NoEntry		  0x43003c9c
 #define HT_Text_HolographicScannerUseToGenerateAHoloDiskThatCanCreateAHolographicReplicaOfDarwin		  0x43003c9d
 #define HT_Text_LaserOpticSwitchFibreOpticSwitchThatRespondsToLaserEnergyWillPowerUpNearbyTerminalsWhenActive		  0x43003c9e
 #define HT_Text_LoadPreviousLevel		  0x43003c9f
@@ -2418,7 +2418,7 @@
 #define HT_Text_LetsAllSeeWhatHappensNext		  0x43003e13
 #define HT_Text_NowThatWasCool		  0x43003e14
 #define HT_Text_ThinkICouldUseOneOfTheseBackInHQ		  0x43003e15
-#define HT_Text_BAMDoIHaveAimOrWhat		  0x43003e16
+#define HT_Text_BamDoIHaveAimOrWhat		  0x43003e16
 #define HT_Text_ItDidntSeeThatOneComing		  0x43003e17
 #define HT_Text_ThatShouldBuyMeAFewPreciousSeconds		  0x43003e18
 #define HT_Text_ZapAndYouAreOutForNowAtLeast		  0x43003e19
