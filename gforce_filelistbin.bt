@@ -59,7 +59,10 @@ for (i = 0; i<count; i++)
                 the constant 0x16 minus the current entry index (which starts from zero)
                 and minus the current character index in the string (which also starts from zero)
 
-                because we are working with individual bytes, they wrap around and we don't lose information */
+                because we are working with individual bytes, they wrap around and we don't lose information
+                --
+          NOTE: version 6, as used in the PS2 version of Athens 2004, is the same but in plain text */
+
         cur_byte = (ver == 6) ? ReadByte(cur + j) : ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
 
