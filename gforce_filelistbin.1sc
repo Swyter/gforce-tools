@@ -13,8 +13,12 @@
 RunTemplate("gforce_filelistbin.bt");
 
 
-char target_folder[] = "F:/SteamLibrary/steamapps/common/G-Force/data"; //InputDirectory("Choose a folder where to extract the EngineX-packed files");
+char target_folder[] = InputDirectory("Choose a folder where to extract the EngineX-packed files");
 char filelist_path[] = GetFileName();
+
+if (target_folder[0] == 0)
+    Exit(-1);
+
 Printf("\n\n--\n[+] began extraction of filelist: %s\n" + 
                "                       at folder: %s\n\n", filelist_path, target_folder);
 
@@ -42,7 +46,7 @@ for (i = 0; i < count; i++)
         target_file[1]  = ';';
 
     /* swy: build the correct extension from the index; the usual pattern is Filelist.000, but anything goes */
-    big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[0].loc_file));
+    big_file = FileNameSetExtension(filelist_path, Str("%03u", elem[i].loc_file));
 
     /* swy: optimization; to avoid reopening and closing the same Filelist.NNN file for every iteration
             only pay the price when we need a change (e.g. closing .000 and opening .001) */
