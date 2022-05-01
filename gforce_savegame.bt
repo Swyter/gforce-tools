@@ -21,4 +21,5 @@ struct
 
     uint two [3], count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
 
+    uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
 } head;
