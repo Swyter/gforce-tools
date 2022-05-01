@@ -1,0 +1,21 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+struct
+{
+    uint a, b <format=hex>, c <format=hex>, d <format=hex>, e <format=hex>, f <format=hex>, g; float h[5]<format=hex>;
+
+    uint two, count; struct { uint hc; uint a,b,val;} dh[count];
+
+} head;
