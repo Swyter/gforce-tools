@@ -22,4 +22,7 @@ struct
     uint two [3], count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
 
     uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
+
+    // Chip_Production-1515702382773 https://www.speedrun.com/resourceasset/yyvcn // https://www.speedrun.com/gforce/resources
+    struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[600-30];
 } head;
