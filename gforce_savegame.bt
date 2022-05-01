@@ -28,3 +28,6 @@ struct
 
     uint count_d, more; struct thing_c thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
 } head;
+
+FSeek(0x4820);
+struct tail_t { uint thing[4] <format=hex>; } tail; uint crc32 <format=hex>;
