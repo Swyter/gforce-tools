@@ -27,6 +27,10 @@ struct
     struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[50-8];
 
     uint count_d, more; struct thing_c thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
+
+    uint count_e; struct thing_e_t { byte unk[20]; } thing_e[15]; // 304 / 8
+    uint count_f; byte section_f[700];
+    uint count_g; byte section_g[700];
 } head;
 
 FSeek(0x4820);
