@@ -16,8 +16,8 @@
 struct
 {
     uint magic, b <format=hex>, size <format=hex>, d <format=hex>;
-    GForceHashCode e <format=hex>; uint more [5];
-    uint f <format=hex>, g; float ff; uint ddd; float h[3]<format=hex>;
+    GForceHashCode e <format=hex>; uint more,a,s,d,b;
+    uint f <format=hex>, g; GForceHashCode ff; uint ddd; float h[3]<format=hex>;
 
     uint two [3], count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
 
