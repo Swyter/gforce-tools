@@ -11,11 +11,14 @@
 //   History: 
 //------------------------------------------------
 
+#include <gforce_hashcodes.enum.h>
 
 struct
 {
-    uint a, b <format=hex>, c <format=hex>, d <format=hex>, e <format=hex>, f <format=hex>, g; float h[5]<format=hex>;
+    uint magic, b <format=hex>, size <format=hex>, d <format=hex>;
+    GForceHashCode e <format=hex>; uint more [5];
+    uint f <format=hex>, g; float ff; uint ddd; float h[3]<format=hex>;
 
-    uint two, count; struct { uint hc; uint a,b,val;} dh[count];
+    uint two [3], count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
 
 } head;
