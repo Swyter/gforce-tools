@@ -24,5 +24,7 @@ struct
     uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
 
     // Chip_Production-1515702382773 https://www.speedrun.com/resourceasset/yyvcn // https://www.speedrun.com/gforce/resources
-    struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[600-30];
+    struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[50-8];
+
+    uint count_d, more; struct thing_c thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
 } head;
