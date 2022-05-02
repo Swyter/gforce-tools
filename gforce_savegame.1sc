@@ -9,21 +9,20 @@
 //  Category: Game
 //------------------------------------------------
 
-
-char path[] = GetFileName();
-Printf("\n\n--\n[+] Checksumming «%s»\n", path);
+Printf("\n\n--\n[+] Checksumming «%s»\n", GetFileName());
 
 LittleEndian();
 
-uint64 data_end_offset = FileSize() - sizeof(uint);
- int64 cksm            = Checksum(CHECKSUM_CRC32, 0, data_end_offset);
+uint64 data_end_offset = FileSize() - sizeof(uint); /* swy: right until the end, minus the last four bytes of checksum */
+
+ int64    old_checksum = ReadUInt(data_end_offset);
+ int64    new_checksum = Checksum(CHECKSUM_CRC32, 0, data_end_offset);
 
 Printf(
-    "\n[i] Old: %06X,\n    New: %6X (%smatch)\n",
-    ReadUInt(data_end_offset), cksm,
-    (ReadUInt(data_end_offset) == cksm) ? "" : "didn't "
+    "\n[i] Old: %06X,\n    New: %6X (%smatch)\n", old_checksum, new_checksum,
+    (old_checksum == new_checksum) ? "" : "didn't "
 );
 
-WriteUInt(data_end_offset, cksm);
+WriteUInt(data_end_offset, new_checksum); /* swy: overwrite it in place */
 
 Printf("\n[+] Done\n");
