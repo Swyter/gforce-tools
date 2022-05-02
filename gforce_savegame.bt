@@ -15,19 +15,23 @@ struct
 {
     uint magic; /* swy: v28 */
 
-    ushort year; byte month, day;
-    byte hour, minute, second, pad <format=hex>;
-    uint d;
+    ushort year; ubyte month, day;
+    ubyte hour, minute, second, pad <format=hex>;
+
+    uint weird_constant;
 } head;
 
-if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
+if (head.weird_constant == 0x2620000) /* swy: if not DATA5 // special settings format */
 {
-    GForceHashCode e <format=hex>; uint moreaa,a;
-    GForceHashCode s <format=hex>, d <format=hex>; uint b;
+    GForceHashCode level_hash   <format=hex>; uint one, zero;
+    GForceHashCode level_hash_b <format=hex>, level_hash_c <format=hex>; uint b;
     
-    uint f <format=hex>, g; GForceHashCode ff; uint some_item_count_or_something; float same_a, same_b, float_c;
+    uint f <format=hex>, g; GForceHashCode level_hash_opt; uint some_item_count_or_something; float same_a, same_b, float_c;
     
-    uint difficulty_maybe, gg, nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
+    uint difficulty_maybe, gg, nn;
+
+
+    uint count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
     
     uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
     
@@ -46,23 +50,22 @@ if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
     
     //FSeek(0x3520);
     byte section_k[1024];
-    
     byte section_hhh[0x988 + 0x578];
     
     //FSeek(0x4820);
     struct tail_t { uint thing[4] <format=hex>; } tail;
 }
-else
+else /* swy: settings, as stored on DATA5 */
 {
     uint unk;
 
-    float a, b, gamma_brightness,d;
+    float a, b, gamma_brightness, d;
     float vol_voices, vol_sfx, vol_music;
 
     enum { none, mono, stereo, three, four, surround } sound_channels;
-    ubyte subtitles,show_controls,flag_b,flag_c;
+    ubyte subtitles, show_controls, flag_b, flag_c;
 
-    struct elem_t {uint thing<format=hex>,a,b,val;} entr[43];
+    struct elem_t { uint thing<format=hex>,a,b,val; } entr[43];
 
     uint end [176/4] <format=hex>;
 }
