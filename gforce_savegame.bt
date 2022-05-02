@@ -21,11 +21,11 @@ struct
 if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
 {
     GForceHashCode e <format=hex>; uint moreaa,a;
-    GForceHashCode s <format=hex>; uint d,     b;
+    GForceHashCode s <format=hex>, d <format=hex>; uint b;
     
     uint f <format=hex>, g; GForceHashCode ff; uint some_item_count_or_something; float same_a, same_b, float_c;
     
-    uint rr,gg,nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
+    uint difficulty_maybe, gg, nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
     
     uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
     
