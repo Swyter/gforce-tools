@@ -15,13 +15,13 @@ struct
 {
     uint magic; /* swy: v28 */
 
-    uint b <format=hex>, time, d <format=hex>;
+    uint b <format=hex>, time_maybe, d <format=hex>;
     GForceHashCode e <format=hex>; uint moreaa,a;
     GForceHashCode s <format=hex>; uint d,     b;
 
-    uint f <format=hex>, g; GForceHashCode ff; uint ddd; float same_a, same_b, float_c;
+    uint f <format=hex>, g; GForceHashCode ff; uint some_item_count_or_something; float same_a, same_b, float_c;
 
-    uint rr,gg,nn, count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
+    uint rr,gg,nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
 
     uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
 
@@ -38,12 +38,12 @@ struct
     uint count_j; byte section_j[4468];
 
 
-    FSeek(0x3520);
+    //FSeek(0x3520);
     byte section_k[1024];
 
     byte section_hhh[0x988 + 0x578];
 
 } head;
 
-FSeek(0x4820);
+//FSeek(0x4820);
 struct tail_t { uint thing[4] <format=hex>; } tail; uint crc32 <format=hex>;
