@@ -549,7 +549,7 @@
 #define HT_Item_Pickup_PlasmaCell		0x40130001
 #define HT_Item_Pickup_ClusterCell		0x40130007
 #define HT_Item_Pickup_40130006		0x40130006
-#define HT_Item_Pickup_FuelCells		0x40130005
+#define HT_Item_Pickup_FuelCell		0x40130005
 #define HT_Item_Pickup_40130004		0x40130004
 #define HT_Item_Pickup_40130003		0x40130003
 #define HT_Item_Pickup_40130008		0x40130008
@@ -561,7 +561,21 @@
 #define HT_Item_Quest_HASHCODE_BASE		 0x40010000
 #define HT_Item_Quest_40010046		 0x40010046
 #define HT_Item_Quest_40010048		 0x40010048
+#define HT_Item_Quest_HASHCODE_END		 0x40010048
 /* 40010048 */
+
+/* HT_Item_Inv */
+#define HT_Item_Inv_HASHCODE_BASE		 0x40050000
+#define HT_Item_Inv_40050003		 0x40050003
+#define HT_Item_Inv_40050010		 0x40050010
+#define HT_Item_Inv_HASHCODE_END		 40050010
+/* 40050010 */
+
+/* HT_Item_Unk */
+#define HT_Item_Unk_HASHCODE_BASE		 0x40010000
+#define HT_Item_Unk_40060005		 0x40060005
+#define HT_Item_Unk_HASHCODE_END		 0x40060005
+/* 40060005 */
 
 /* HT_Text */
 #define HT_Text_HASHCODE_BASE		0x43000000
