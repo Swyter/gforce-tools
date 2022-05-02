@@ -33,7 +33,7 @@ struct
     uint count_g; byte section_g[1004];
     uint count_h; byte section_h[1004];
     uint count_i; byte section_i[1004];
-    uint count_j; byte section_j[1004];
+    uint count_j; byte section_j[4468];
 
 
     FSeek(0x3520);
