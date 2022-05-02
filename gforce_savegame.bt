@@ -15,8 +15,9 @@
 
 struct
 {
-    uint magic, b <format=hex>, size <format=hex>, d <format=hex>;
-    GForceHashCode e <format=hex>; uint more,a,s,d,b;
+    uint magic, b <format=hex>, time, d <format=hex>;
+    GForceHashCode e <format=hex>; uint moreaa,a;
+    GForceHashCode s <format=hex>; uint d,b;
     uint f <format=hex>, g; GForceHashCode ff; uint ddd; float h[3]<format=hex>;
 
     uint two [3], count; struct type_a{ uint val;} dh[count]; type_a dh_empty[600-count];
@@ -39,8 +40,7 @@ struct
     FSeek(0x3520);
     byte section_k[1024];
 
-    byte section_hhh[0x988];
-    byte section_idd[0x578];
+    byte section_hhh[0x988 + 0x578];
 
 } head;
 
