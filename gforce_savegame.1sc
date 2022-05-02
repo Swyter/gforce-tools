@@ -1,0 +1,29 @@
+//------------------------------------------------
+//--- 010 Editor v12.0.1 Script File
+//
+//      File: Disney's G-Force - DATA0 (CRC32 regen script)
+//   Authors: Swyter
+//   Version: 2022.05.01
+//   Purpose: Recompute the tailing CRC32 checksum that most EngineX saves
+//            seem to use for error detection.
+//  Category: Game
+//------------------------------------------------
+
+
+char path[] = GetFileName();
+Printf("\n\n--\n[+] Checksumming «%s»\n", path);
+
+LittleEndian();
+
+uint64 data_end_offset = FileSize() - sizeof(uint);
+ int64 cksm            = Checksum(CHECKSUM_CRC32, 0, data_end_offset);
+
+Printf(
+    "\n[i] Old: %06X,\n    New: %6X (%smatch)\n",
+    ReadUInt(data_end_offset), cksm,
+    (ReadUInt(data_end_offset) == cksm) ? "" : "didn't "
+);
+
+WriteUInt(data_end_offset, cksm);
+
+Printf("\n[+] Done\n");
