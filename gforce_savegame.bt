@@ -52,7 +52,17 @@ if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
 }
 else
 {
-    uint unk; float a,b,gamma,d,vol,vol_b,vol_c; enum {none, mono, stereo, three, four, surround} sound_channels; ubyte captions,a,b,c; struct elem_t {uint thing<format=hex>,a,b,val;}entr[43]; uint end [176/4]<format=hex>;
+    uint unk;
+
+    float a, b, gamma_brightness,d;
+    float vol_voices, vol_sfx, vol_music;
+
+    enum { none, mono, stereo, three, four, surround } sound_channels;
+    ubyte subtitles,show_controls,flag_b,flag_c;
+
+    struct elem_t {uint thing<format=hex>,a,b,val;} entr[43];
+
+    uint end [176/4] <format=hex>;
 }
 
 
