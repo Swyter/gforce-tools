@@ -544,6 +544,18 @@
 #define HT_MemCardText_HASHCODE_END		 0x2204000e
 /* 2204000e */
 
+/* HT_Item */
+#define HT_Item_HASHCODE_BASE		0x40000000
+#define HT_Item_40130001		0x40130001
+#define HT_Item_40130007		0x40130007
+#define HT_Item_40130006		0x40130006
+#define HT_Item_40130005		0x40130005
+#define HT_Item_40130004		0x40130004
+#define HT_Item_40130003		0x40130003
+#define HT_Item_40130008		0x40130008
+#define HT_Item_Chips		0x40130002
+#define HT_Item_HASHCODE_END		 0x2204000e
+
 /* HT_Text */
 #define HT_Text_HASHCODE_BASE		0x43000000
 #define HT_Text_SoundOptions		  0x43001160
