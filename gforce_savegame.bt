@@ -52,7 +52,7 @@ if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
 }
 else
 {
-    uint unk; float t[7]; uint a, count; struct elem_t {uint thing<format=hex>,a,b,val;}entr[43]; uint end [176/4]<format=hex>;
+    uint unk; float a,b,gamma,d,e,f,g; uint a, count; struct elem_t {uint thing<format=hex>,a,b,val;}entr[43]; uint end [176/4]<format=hex>;
 }
 
 
