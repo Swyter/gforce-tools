@@ -557,6 +557,12 @@
 #define HT_Item_Pickup_HASHCODE_END		 0x40130003
 /* 40130003 */
 
+/* HT_Item_Quest */
+#define HT_Item_Quest_HASHCODE_BASE		 0x40010000
+#define HT_Item_Quest_40010046		 0x40010046
+#define HT_Item_Quest_40010048		 0x40010048
+/* 40010048 */
+
 /* HT_Text */
 #define HT_Text_HASHCODE_BASE		0x43000000
 #define HT_Text_SoundOptions		  0x43001160
