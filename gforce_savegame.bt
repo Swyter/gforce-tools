@@ -16,34 +16,47 @@ struct
     uint magic; /* swy: v28 */
 
     uint b <format=hex>, time_maybe, d <format=hex>;
-    GForceHashCode e <format=hex>; uint moreaa,a;
-    GForceHashCode s <format=hex>; uint d,     b;
-
-    uint f <format=hex>, g; GForceHashCode ff; uint some_item_count_or_something; float same_a, same_b, float_c;
-
-    uint rr,gg,nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
-
-    uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
-
-    // Chip_Production-1515702382773 https://www.speedrun.com/resourceasset/yyvcn // https://www.speedrun.com/gforce/resources
-    struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[50-8];
-
-    uint count_d, more; struct items{ GForceHashCode hc <format=hex>; uint b; GForceHashCode hcd <format=hex>; uint count,e;} thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
-
-    uint count_e; struct thing_e_t { byte unk[20]; } thing_e[15]; // 304 / 8
-    uint count_f; byte section_f[700];
-    uint count_g; byte section_g[1004];
-    uint count_h; byte section_h[1004];
-    uint count_i; byte section_i[1004];
-    uint count_j; byte section_j[4468];
-
-
-    //FSeek(0x3520);
-    byte section_k[1024];
-
-    byte section_hhh[0x988 + 0x578];
-
 } head;
 
-//FSeek(0x4820);
-struct tail_t { uint thing[4] <format=hex>; } tail; uint crc32 <format=hex>;
+if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
+{
+    struct
+    {
+        GForceHashCode e <format=hex>; uint moreaa,a;
+        GForceHashCode s <format=hex>; uint d,     b;
+        
+        uint f <format=hex>, g; GForceHashCode ff; uint some_item_count_or_something; float same_a, same_b, float_c;
+        
+        uint rr,gg,nn, count; struct type_a{ ubyte val, vel; short vol;} dh[count]; type_a dh_empty[600-count];
+        
+        uint count_b; byte array_b[count_b]; byte array_b_empty[600 - count_b];
+        
+        // Chip_Production-1515702382773 https://www.speedrun.com/resourceasset/yyvcn // https://www.speedrun.com/gforce/resources
+        struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[50-8];
+        
+        uint count_d, more; struct items{ GForceHashCode hc <format=hex>; uint b <format=hex>; GForceHashCode hc_b <format=hex>; uint count, max_maybe;} thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
+        
+        uint count_e; struct thing_e_t { byte unk[20]; } thing_e[15]; // 304 / 8
+        uint count_f; byte section_f[700];
+        uint count_g; byte section_g[1004];
+        uint count_h; byte section_h[1004];
+        uint count_i; byte section_i[1004];
+        uint count_j; byte section_j[4468];
+        
+        
+        //FSeek(0x3520);
+        byte section_k[1024];
+        
+        byte section_hhh[0x988 + 0x578];
+        
+        //FSeek(0x4820);
+        struct tail_t { uint thing[4] <format=hex>; } tail;
+    } game;
+}
+else
+{
+    uint unk; float t[8];
+}
+
+
+uint crc32 <format=hex>;
