@@ -28,7 +28,7 @@ struct
     // Chip_Production-1515702382773 https://www.speedrun.com/resourceasset/yyvcn // https://www.speedrun.com/gforce/resources
     struct thing_c { uint a,b,c,d,e;} elemee[8]; struct thing_c elemee_empty[50-8];
 
-    uint count_d, more; struct thing_c thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
+    uint count_d, more; struct items{ GForceHashCode hc <format=hex>; uint b; GForceHashCode hcd <format=hex>; uint count,e;} thing_d[count_d]; struct thing_c thing_d_empty[50-count_d];
 
     uint count_e; struct thing_e_t { byte unk[20]; } thing_e[15]; // 304 / 8
     uint count_f; byte section_f[700];
