@@ -15,7 +15,9 @@ struct
 {
     uint magic; /* swy: v28 */
 
-    uint b <format=hex>, time_maybe, d <format=hex>;
+    ushort year; byte month, day;
+    byte hour, minute, second, pad <format=hex>;
+    uint d;
 } head;
 
 if (head.d == 0x2620000) /* swy: if not DATA5 // special settings format */
