@@ -30,7 +30,18 @@ struct
 
     uint count_e; struct thing_e_t { byte unk[20]; } thing_e[15]; // 304 / 8
     uint count_f; byte section_f[700];
-    uint count_g; byte section_g[700];
+    uint count_g; byte section_g[1004];
+    uint count_h; byte section_h[1004];
+    uint count_i; byte section_i[1004];
+    uint count_j; byte section_j[1004];
+
+
+    FSeek(0x3520);
+    byte section_k[1024];
+
+    byte section_hhh[0x988];
+    byte section_idd[0x578];
+
 } head;
 
 FSeek(0x4820);
