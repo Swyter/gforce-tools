@@ -15,16 +15,17 @@
 // File Mask: *.bin
 //------------------------------------------------
 
-local uint ver_test = ReadUInt();
+local uint endian_test = ReadUByte(); (endian_test == 0) ? BigEndian() : LittleEndian(); /* swy: if the first byte has data then it probably means that its less significant byte is there; so it's little-endian, a backwards way of storing integers; [07 00 00 00] instead of [00 00 00 07] like you would get on GameCube */
+local uint    ver_test = ReadUInt();
 
-if (!(ver_test == 7 || ver_test == 6))
+if (!(ver_test == 5 || ver_test == 6 || ver_test == 7))
 {
     Warning("Unsupported Filelist version: %u", ver_test);
     Exit(-1);
 }
 
 /* swy: here's the nifty header */
-uint ver, full_size <format=hex>, count, one, string_table_offset <format=hex>;
+uint ver, full_size <format=hex>, count; ushort one, zero; uint string_table_offset <format=hex>;
 
 /* swy: right after the header there we have the file elements, but we skip them for now
         because we don't have the file paths yet; we'll come back later */
@@ -63,7 +64,7 @@ for (i = 0; i<count; i++)
                 --
           NOTE: version 6, as used in the PS2 version of Athens 2004, is the same but in plain text */
 
-        cur_byte = (ver == 6) ? ReadByte(cur + j) : ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
+        cur_byte = (ver != 7) ? ReadByte(cur + j) : ((ReadByte(cur + j) + 0x16 - i - j) & 0xff);
         buf[i].s += (char) cur_byte;
 
         j++; /* swy: this goes here because sometimes the paths are empty and only contain the final NULL terminator; which we want to include in the count here as part of the buffer; otherwise it's empty */
