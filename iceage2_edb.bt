@@ -1,0 +1,46 @@
+//////////////////////////////////////////////////////////////////////
+// EngineX Output : X:\iceage2\binary\_bin_pc\d01_text.edb
+// Source File: _d01_text.elf
+// Output by: Usuario
+// Output date: Tuesday, September 25, 2018 - 23:45:02
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+// EngineXBase Header                                                 
+//////////////////////////////////////////////////////////////////////
+
+// 'GEOM' Marker
+    DD  47454f4dh
+// File HashCode
+    DD  01000269h
+// Output Main Version
+    DD  000000b6h
+    DD  FILEFLAGS
+    DD  FILETIME
+// Total FileSize
+    OFFSET.ADW  FILEND
+// Base FilelistSize
+    OFFSET.ADW  BASEFILEEND
+
+// Platform Versions
+    DD   0000000h
+    DD   0000000h
+    DD   0000000h
+    DD   0000000h
+    DD   0000000h
+    DD   0000000h
+
+// Offset To Debug Sction
+    OFFSET.ADW  DEBUGSECTION
+    OFFSET.ADW  DEBUGSECTIONEND
+// Debug EXFile Ptr
+    DD   0000000h
+
+// m_pGeoFile
+    DD   0000000h
+// m_NumTextures
+    DD   0000000h
+// m_pTextureArray
+    DD   0000000h
+// m_pGeoDataBlock
+    DD   0000000h
