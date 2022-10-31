@@ -12,6 +12,8 @@
         the template results; we depend on this to work */
 RunTemplate("gforce_filelistbin.bt");
 
+/* swy: our endianness setting doesn't seem to carry over from what the template sets in the current file; set it in this script context, too */
+(endian_test == 0) ? BigEndian() : LittleEndian();
 
 char target_folder[] = InputDirectory("Choose a folder where to extract the EngineX-packed files");
 char filelist_path[] = GetFileName();
