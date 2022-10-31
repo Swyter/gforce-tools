@@ -8,6 +8,14 @@
 //  Category: Game
 //------------------------------------------------
 
+/* swy: shouldn't need to check if we are the actual descriptor via extension, but people
+        seem to have trouble with this when running it the first around; make it easy */
+if (Stricmp(FileNameGetExtension(GetFileName()), ".bin") != 0)
+{
+    Warning("This script needs to run against a «Filelist.bin» file. Ensure you aren't trying to run on something else, like the .000 files.");
+    Exit(-1);
+}
+
 /* swy: run the original template to fill out the data structures in
         the template results; we depend on this to work */
 RunTemplate("gforce_filelistbin.bt");
@@ -41,7 +49,7 @@ for (i = 0; i < count; i++)
     if (target_file[0] == 0)
         target_file = "__unk_name_hc_" + Str("%#08x_idx_%u", hashcode, i);
 
-    Printf("[i] %3u, [%#08x] %s (%#x bytes)\n", i, hashcode, target_file, len);
+    Printf("[i] %3u, [%#010x] %s (%#x bytes)\n", i, hashcode, target_file, len);
 
     /* swy: we can't use virtual drive paths like «X:» on folder names; so pick something else */
     if (target_file[1] == ':')
@@ -74,7 +82,7 @@ for (i = 0; i < count; i++)
     if (ReadUInt(offset + 0) == 0x47454f4d /* 'MOEG' */ && hashcode == ReadUInt(offset + 4) && ReadUInt(offset + 0x14) != len)
     {
         len = ReadUInt(offset + 0x14);
-        Printf("[!]        \\_ (Detected EDB file with mismatched size; writing %#x bytes instead)\n\n", len);
+        Printf("[!]          \\_ (Detected EDB file with mismatched size; writing %#x bytes instead)\n\n", len);
     }
 
     /* swy: dump it like there's no tomorrow ¯\_(ツ)_/¯ */
